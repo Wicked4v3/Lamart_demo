@@ -13,7 +13,7 @@
       <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
       <ul class="menu">
         <li>
-          <a id="menu_link" href="#top">Om meg</a>
+          <a id="menu_link" href="#om_meg">Om meg</a>
         </li>
         <li id="menu_seperator" >|</li>
         <li>
@@ -219,25 +219,25 @@
 
             <div>
               <label for="name">Ditt navn*</label><br>
-              <input type="text" name="name" placeholder="Skriv inn navnet ditt">
+              <input type="text" name="name" required placeholder="Skriv inn navnet ditt">
               <small><?= $errors['name'] ?? '' ?></small>
             </div>
 
             <div>
               <label for="email">Din epost*</label><br>
-              <input type="email" name="email" id="email" placeholder="Tast inn epostadressa di">
+              <input type="email" name="email" id="email" required placeholder="Tast inn epostadressa di">
               <small><?= $errors['email'] ?? '' ?></small>
             </div>
 
             <div>
               <label for="phone_number">Ditt mobilnummer*</label><br>
-              <input type="tel" name="phonenumber" placeholder="Tast inn mobilnummeret ditt">
+              <input type="tel" name="phonenumber" required placeholder="Tast inn mobilnummeret ditt">
               <small><?= $errors['name'] ?? '' ?></small>
             </div>
 
             <div>
               <label for="message">Melding*</label><br>
-              <textarea id="message" name="message" rows="5" placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
+              <textarea id="message" name="message" rows="5" required placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
               <small><?= $errors['message'] ?? '' ?></small>
             </div>
             <button type="submit">Send</button>

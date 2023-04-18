@@ -556,6 +556,13 @@ footer{
 		margin-top: -26px;
 	}
 
+	@-moz-document url-prefix() {
+    footer{
+		margin-top: -52px;
+		}
+	}
+}
+
 	.hamburger_icon{
 		display: block;
 		height: 70%;
@@ -629,10 +636,15 @@ footer{
 .fullscreen_nav ul{
 	display: block;
 	margin: 0 auto;
+	padding: 0;
 }
 
 .fullscreen_nav li{
 	margin-bottom: 20px;
+}
+
+.fullscreen_nav .instagram_icon{
+	display: none;
 }
 
 .fullscreen_nav #menu_seperator{
