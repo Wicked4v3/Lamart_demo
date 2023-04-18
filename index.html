@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamart Photography</title>
+  <link rel="stylesheet" href="main.css">
+  
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
+      <ul class="menu">
+        <li>
+          <a id="menu_link" href="#top">Om meg</a>
+        </li>
+        <li id="menu_seperator" >|</li>
+        <li>
+          <a id="menu_link" href="#gallery">Galleri</a>
+        </li>
+        <li id="menu_seperator" >|</li>
+        <li>
+          <a id="menu_link" href="#priser">Priser</a>
+        </li>
+        <li id="menu_seperator" >|</li>
+        <li>
+          <a id="menu_link" href="#contact">Kontakt</a>
+        </li>
+        <li>
+          <img onclick="window.location.href='https://www.instagram.com/laraa__photography/';" src="img/instagram_icon.svg" class="instagram_icon" alt="Go to my Instagram page">
+        </li>
+      </ul>
+
+      <img src="img/hamburger_menu_icon.svg" class="hamburger_icon" onclick="openNav()" alt="Open the navigation menu">
+      <img src="img/exit_menu_icon.svg" class="exit_icon" onclick="closeNav()" alt="Close the navigation menu">
+    </div>
+  </nav>
+
+
+  <header>
+    <img src="img/335483850_1278597173009035_8674762375865478595_n_edited.jpg">
+    <p>Laura Matiukaitė</p>
+    <p id="photography_art">Photography - Art</p>
+  </header>
+
+
+  <main>
+    <section class="om_meg" id="om_meg">
+      <div class="container">
+        <img src="img/laura_matiukaite_round.png" class="portrait" alt="A picture of me">
+        <article>
+          <h1>Labas!</h1>
+          <p>Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque. Cursus euismod quis viverra nibh. Vel elit scelerisque mauris pellentesque. Aliquam malesuada bibendum arcu vitae elementum. Sagittis eu volutpat odio facilisis. Sociis natoque penatibus et magnis dis.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="gallery" id="gallery">
+
+      <div id="fullscreen_image" onclick="this.style.display='none';"></div>
+
+      <ul>
+        <li>
+          <img src="img/gallery/1.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/2.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/3.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/4.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/5.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/6.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/7.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/8.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/9.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/10.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/11.jpg">
+          <div class="overlay"></div>
+        </li>
+        <li>
+          <img src="img/gallery/12.jpg">
+          <div class="overlay"></div>
+        </li>
+      </ul>
+
+      <button onclick="addImages()" id="load_more_button">Last inn flere</button>
+    </section>
+
+    
+    <hr>
+
+
+    <section class="priser" id="priser">
+      <div class="container">
+        <h1>Priser</h1>
+        <p>Volutpat sed cras ornare arcu dui vivamus arcu felis. Vel pharetra vel turpis nunc eget lorem dolor sed. Arcu non odio euismod lacinia at quis risus sed. Neque sodales ut etiam sit amet. Eget mauris pharetra et ultrices neque. Sed pulvinar proin gravida hendrerit lectus a. Vulputate mi sit amet mauris commodo. Sit amet consectetur adipiscing elit ut. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt:</p>
+        <ul class="list_within_paragraph">
+          <li>&ensp;•&ensp;Semper auctor neque vitae tempus</li>
+          <li>&ensp;•&ensp;Quam pellentesque nec</li>
+          <li>&ensp;•&ensp;Sit amet est placerat in egestas. Donec ultrices tincidunt arcu</li>
+          <li>&ensp;•&ensp;Non pretium vulputate sapien</li>
+        </ul>
+        <p><br>Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque. Cursus euismod quis viverra nibh. Vel elit scelerisque mauris pellentesque. Aliquam malesuada bibendum arcu vitae elementum.</p>
+
+        <div class="table_container">
+          <div class="priser_table">
+            <h2>Personlig</h2>
+            <ul class="priser_table_header">
+              <li><h3>1 bibendum</h3></li>
+              <li class="divider"></li>
+              <li><h3>1 000kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+            <ul class="priser_table_header">
+              <li><h3>2 bibendums</h3></li>
+              <li class="divider"></li>
+              <li><h3>2 500kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Ec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+            <ul class="priser_table_header">
+              <li><h3>Bibendum turpis</h3></li>
+              <li class="divider"></li>
+              <li><h3>5 000kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+          </div>
+
+          <div class="priser_table">
+            <h2>Arrangement</h2>
+            <ul class="priser_table_header">
+              <li><h3>1 egestas</h3></li>
+              <li class="divider"></li>
+              <li><h3>1 000kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+            <ul class="priser_table_header">
+              <li><h3>2 egestas</h3></li>
+              <li class="divider"></li>
+              <li><h3>2 500kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Ec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+            <ul class="priser_table_header">
+              <li><h3>Egestas turpis</h3></li>
+              <li class="divider"></li>
+              <li><h3>5 000kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+          </div>
+
+          <div class="priser_table">
+            <h2>Bestilling</h2>
+            <ul class="priser_table_header">
+              <li><h3>Nec tincident </h3></li>
+              <li class="divider"></li>
+              <li><h3>5 000kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+            <ul class="priser_table_header">
+              <li><h3>Feugiat sceleris </h3></li>
+              <li class="divider"></li>
+              <li><h3>10 000kr</h3></li>
+            </ul>
+            <p class="priser_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+          </div>
+        </div>
+
+        <p>*Diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Viverra mauris in aliquam sem!</p>
+      </div>
+    </section>
+
+
+    <hr>
+
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <img src="img/54513681_1288280491345292_8807770354364875079_n.jpg">
+
+        <div class="contact_form">
+          <form action="index.php" method="post">
+
+            <div>
+              <h1>Ta kontakt</h1>
+              <p>Du kan fylle ut skjemaet nedenfor, eller nå meg på:</p>
+              <a href="https://www.facebook.com/laura.matiukaite.75/">facebook/laura.matiukaite</a><br>
+              <a href="https://www.instagram.com/laraa__photography/">instagram/laraa__photography</a><br>
+              <a href="mailto:laura.matiukaite2@gmail.com">laura.matiukaite2@gmail.com</a><br>
+              <hr>
+            </div>
+
+            <div>
+              <label for="name">Ditt navn*</label><br>
+              <input type="text" placeholder="Skriv inn navnet ditt">
+              <small><?= $errors['name'] ?? '' ?></small>
+            </div>
+
+            <div>
+              <label for="email">Din epost*</label><br>
+              <input type="email" name="email" id="email" placeholder="Tast inn epostadressa di">
+              <small><?= $errors['email'] ?? '' ?></small>
+            </div>
+
+            <div>
+              <label for="phone_number">Ditt mobilnummer*</label><br>
+              <input type="text" placeholder="Tast inn mobilnummeret ditt">
+              <small><?= $errors['name'] ?? '' ?></small>
+            </div>
+
+            <div>
+              <label for="message">Melding*</label><br>
+              <textarea id="message" name="message" rows="5" placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
+              <small><?= $errors['message'] ?? '' ?></small>
+            </div>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  <footer>
+      <button onclick="window.location.href='#top';" class="button_back_to_top"> 
+        <img src="img/up_arrow_icon.svg">
+        <p>Til toppen igjen</p>
+      </button>
+    
+
+    <p class="footer_bar">©Lamart | Art and Photography | Laura Matiukaite | E: laura.matiukaite2@gmail.com</p>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+</html> 

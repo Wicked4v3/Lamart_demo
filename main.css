@@ -1,0 +1,640 @@
+/* GLOBAL */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400|Noto+Sans:400");
+/*CSS RESET*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,hr,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display: block
+}
+
+body {
+    line-height: 1
+}
+
+ol,ul {
+    list-style: none
+}
+
+blockquote,q {
+    quotes: none
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+
+
+
+:root { 
+  --pureblack: #000000;
+  --purewhite: #ffffff;
+  --textblack: #262626;
+  --color_text_placeholder: #777777;
+  --color_prisliste_beskrivelse: #505050;
+ 
+  --font_noto_sans: "Noto Sans", Sans-serif;
+  --font_open_sans: "Open Sans", Sans-serif;
+}
+
+
+
+
+
+*{
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+}
+
+header{
+	display: none;
+}
+
+body{
+	background-color: var(--purewhite);
+	padding-top: 10vh;
+	overflow: auto;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+nav, .om_meg, .priser, .contact{
+	padding: 0 0.7em;
+}
+
+nav ul{
+	padding-top: 0.5vh;
+}
+
+p, .list_within_paragraph{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 220%;	/* or 35px */
+	color: var(--textblack);
+}
+
+h1{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 40px;
+	line-height: 220%;	/* or 35px */
+	color: var(--textblack);
+}
+
+h2{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 36px;
+	line-height: 220%;
+	color: var(--textblack);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--color_text_placeholder);
+}
+
+hr{
+	margin-top: 40px;
+	height: 1px;
+	border: none;
+	background-color: var(--pureblack);
+}
+
+button{
+	cursor: pointer;
+}
+
+
+/* NAV */
+
+nav{
+	background-color: var(--purewhite);
+	height: 10vh;
+	position: fixed;
+	top: 0;
+	transition: top 0.3s ease;
+	width: 100%;
+	filter: drop-shadow(0px 4px 25px rgba(0, 0, 0, 0.11));
+	z-index: 1;
+}
+
+nav, nav a{
+	font-family: var(--font_noto_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 29px;
+	color: #000000;
+	white-space: nowrap;
+}
+
+nav .container{
+	max-width: 1075px;
+	height: 100%;
+	margin: 0 auto;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu{
+	display:flex;
+}
+
+.menu li{
+	margin-left: 20px;
+}
+
+#lamart_logo{
+	height: 60%;
+}
+
+.instagram_icon{
+	height: 28px;
+	margin: 1px 0 0 50px;
+
+	cursor: pointer;
+}
+
+.hamburger_icon, .exit_icon{
+	display: none;
+}
+
+/* ABOUT ME */
+
+.portrait{
+	min-width: 344px;
+	object-fit: cover;
+}
+
+.om_meg{
+	width: 100%;
+	padding-top: 100px;
+}
+
+.om_meg > .container{
+	max-width: 887px;
+	margin: 0 auto;
+	display:flex;
+	gap: 5em;
+}
+
+/* Gallery */
+.gallery{
+	padding-top: 100px;
+	margin: 0 auto;
+	text-align:center;
+}
+
+.gallery ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery li {
+  height: 40vh;
+  flex-grow: 1;
+
+
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+#fullscreen_image {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  cursor: zoom-out;
+  background-color: rgba(0, 0, 0, 0.9);
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.1);
+  box-shadow:inset 0px 0px 100px black;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  /* center overlay text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover */
+.gallery li:hover .overlay {
+  transform: scale(1);
+}
+
+
+.gallery button{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 220%;	/* or 35px */
+	color: var(--pureblack);
+
+	width: 126px;
+	height: 51px;
+	background-color: var(--purewhite);
+	border: 1px solid var(--pureblack);
+
+	margin: 20px 0;
+}
+
+/* PRISER */
+
+.priser .container{
+	max-width: 1258px;
+	margin: 0 auto;
+}
+
+.priser h1{
+	text-align:center;
+	margin: 20px 0 40px 0;
+}
+
+.priser .table_container{
+	display: flex;
+  	align-items: top;
+  	gap: 5vw;
+  	margin:25px 0;
+}
+
+.priser_table_header{
+	display: flex;
+  	align-items: center;
+}
+
+.divider {
+  flex-grow: 1;
+  border-bottom: 1px solid black;
+  margin: 5px;
+  padding-top: 15px;
+}
+
+.priser_table h3{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 220%;
+	color: var(--pureblack);
+}
+
+.priser_table_description{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: var(--color_prisliste_beskrivelse);
+}
+
+/* CONTACT */
+
+.contact_form a,.contact_form p{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 220%;
+	color: var(--textblack);
+}
+
+.contact_form label{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 220%;
+	color: var(--pureblack);
+
+	width: 100%;
+}
+
+.contact_form h1{
+	margin-top: -0.4em;
+	line-height: 170%;
+}
+
+.contact_form hr{
+	width: 105px;
+	margin: 22px 0 27px 0;
+	background-color: var(--textblack);
+}
+
+.contact_form input, .contact_form textarea{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 190%;
+	color: var(--pureblack);
+
+	border: 1px solid #000000;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 0 5px;
+
+	resize: none;
+}
+
+.contact_form textarea{
+	line-height: 120%;
+}
+
+.contact button{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 200%;	/* or 35px */
+	color: var(--purewhite);
+	background-color: var(--textblack);
+
+	border: 0;
+	width: 125px;
+	height: 45px;
+
+	margin-top: 0.7em;
+}
+
+.contact .container{
+	max-width: 1258px;
+	margin: 0 auto;
+	padding-top: 1.5vw;
+
+	display:flex;
+  	gap: 1.5vw;
+}
+
+.contact img{
+	flex: 1 1 0;
+  	width: 0;
+
+	object-fit: cover;
+}
+
+.contact_form{
+	flex: 1 1 0;
+  	width: 0;
+}
+
+/* FOOTER */
+
+.button_back_to_top{
+	background-color: var(--purewhite);
+	border: 0;
+	margin: 60px auto;
+}
+
+.button_back_to_top p{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 150%;	/* or 35px */
+	color: var(--pureblack);
+}
+
+.button_back_to_top img{
+	height: 22px;
+}
+
+footer{
+	width: 100%;
+	text-align: center;
+}
+
+.footer_bar{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 240%;
+	color: var(--purewhite);
+	background-color: var(--pureblack);
+}
+
+
+
+
+/* SMALL SCREEN OPTIMIZATION */
+@media (max-aspect-ratio: 1/1) {
+  .gallery li {
+    height: 30vh;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  .gallery ul {
+    flex-direction: row;
+  }
+
+  .gallery li {
+    height: auto;
+    width: 100%;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
+}
+
+
+
+
+@media(max-width: 855px){
+	.om_meg .container{
+		flex-direction: column;
+	}
+	.om_meg{
+		padding-top: 1em;
+	}
+	.portrait{
+	min-width: 0;
+	order:2;
+	margin: -40px 0;
+	}
+
+	.priser .table_container{
+		display: block;
+	}
+
+	.contact{
+		padding: 0 0;
+	}
+	.contact .container{
+		flex-direction: column;
+		gap:0;
+		padding-top: 0;
+	}
+	.contact img{
+		flex: 1 1 0;
+	  	width: 100%;
+	  	order:2;
+	  	-webkit-transform: scaleX(-1);
+  		transform: scaleX(-1);
+  		min-height: 770px;
+	    margin-top: -190px;
+	    position: relative;
+	    z-index: -1;
+	}
+
+	.contact_form{
+		flex: 1 1 0;
+	  	width: 100%;
+	  	padding: 0 0.7em;
+	  	background: linear-gradient(180deg, rgba(243, 158, 189, 0.25) 0%, #F39EBD 100%);
+	}
+	.contact_form h1 {
+	    margin-top: 0.4em;
+	}
+	.contact_form a,.contact_form p{
+		font-size: 16px;
+	}
+
+	.button_back_to_top{
+		position: relative;
+		height: 0;
+	    bottom: 105px;
+	    margin: 0;
+	    background: none;
+	}
+	.button_back_to_top p{
+		color: var(--purewhite);
+	}
+	.button_back_to_top img{
+		filter: brightness(0) invert(1);
+	}
+	footer{
+		margin-top: -26px;
+	}
+
+	.hamburger_icon{
+		display: block;
+		height: 70%;
+		cursor: pointer;
+	}
+	
+	.menu{
+		display: none;
+	} 
+
+
+
+
+	header{
+		display: block;
+		position: relative;
+		height: 85vh;
+		width: 100%;
+		overflow: hidden;
+		text-align: center;
+	}
+
+	header img{
+		height: 100%;
+    width: 100%;
+    object-fit: cover;
+	}
+	header p{
+		position: absolute;
+    top: 50vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    line-height: 20px;
+    padding: 0 2px;
+	}
+	#photography_art{
+		top: 57.5vw;
+	}
+}
+
+
+
+
+
+.fullscreen_nav{
+	z-index: 9999;
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	transition: all 0.2s ease; /* add transition to the height and top properties */
+}
+
+.fullscreen_nav img{
+	display: none;
+}
+
+.fullscreen_nav .exit_icon{
+	display: block;
+	position: absolute;
+	height: 5.8vh;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+}
+
+.fullscreen_nav ul{
+	display: block;
+	margin: 0 auto;
+}
+
+.fullscreen_nav li{
+	margin-bottom: 20px;
+}
+
+.fullscreen_nav #menu_seperator{
+	display: none;
+}
