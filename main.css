@@ -556,13 +556,6 @@ footer{
 		margin-top: -26px;
 	}
 
-	@-moz-document url-prefix() {
-    footer{
-		margin-top: -52px;
-		}
-	}
-}
-
 	.hamburger_icon{
 		display: block;
 		height: 70%;
