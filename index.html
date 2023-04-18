@@ -206,7 +206,7 @@
         <img src="img/54513681_1288280491345292_8807770354364875079_n.jpg">
 
         <div class="contact_form">
-          <form action="index.php" method="post">
+          <form target="_blank" action="https://formsubmit.co/ficorabi@mailgolem.com" method="POST">
 
             <div>
               <h1>Ta kontakt</h1>
@@ -219,7 +219,7 @@
 
             <div>
               <label for="name">Ditt navn*</label><br>
-              <input type="text" placeholder="Skriv inn navnet ditt">
+              <input type="text" name="name" placeholder="Skriv inn navnet ditt">
               <small><?= $errors['name'] ?? '' ?></small>
             </div>
 
@@ -231,7 +231,7 @@
 
             <div>
               <label for="phone_number">Ditt mobilnummer*</label><br>
-              <input type="text" placeholder="Tast inn mobilnummeret ditt">
+              <input type="tel" name="phonenumber" placeholder="Tast inn mobilnummeret ditt">
               <small><?= $errors['name'] ?? '' ?></small>
             </div>
 
