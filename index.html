@@ -66,13 +66,15 @@
 
 
     <section class="gallery" id="gallery">
+      <h1 id="gallery_header">Galleri</h1>
+
       <div id="fullscreen_image" onclick="this.style.display='none';" aria-label="Trykk hvor som helst på skjermen for å lukke fullskjermmodus">
         <div class="button_exit_fullscreen_view" aria-label="Lukk fullskjermmodus">
           <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk fullskjermmodus">
         </div>
       </div>
 
-      <ul aria-label="Galleri">
+      <ul aria-label="Mine fotografier">
         <li>
           <img src="img/gallery/1.jpg" alt="">
           <div class="overlay"></div>
@@ -252,7 +254,7 @@
               <label for="message">Melding*</label><br>
               <textarea required id="message" name="message" rows="5" placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
             </div>
-            <button type="submit">Send</button>
+            <button aria-label="Send inn skjemaet" type="submit">Send</button>
           </form>
         </div>
       </div>
