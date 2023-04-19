@@ -65,14 +65,14 @@
     </section>
 
 
-    <section class="gallery" id="gallery" aria-label="Galleri">
+    <section class="gallery" id="gallery">
       <div id="fullscreen_image" onclick="this.style.display='none';" aria-label="Trykk hvor som helst på skjermen for å lukke fullskjermmodus">
         <div class="button_exit_fullscreen_view" aria-label="Lukk fullskjermmodus">
           <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk fullskjermmodus">
         </div>
       </div>
 
-      <ul>
+      <ul aria-label="Galleri">
         <li>
           <img src="img/gallery/1.jpg" alt="">
           <div class="overlay"></div>
@@ -123,7 +123,7 @@
         </li>
       </ul>
 
-      <button onclick="addImages()" id="button_load_more" label="Last inn flere bilder">Last inn flere</button>
+      <button onclick="addImages()" id="button_load_more" aria-label="Last inn flere bilder">Last inn flere</button>
     </section>
 
     
