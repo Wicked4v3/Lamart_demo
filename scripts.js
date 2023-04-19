@@ -1,6 +1,6 @@
 const navbar = document.getElementById("navbar");
 const gallerySection = document.getElementById("gallery");
-const loadMoreButton = document.getElementById("load_more_button");
+const loadMoreButton = document.getElementById("button_load_more");
 
 
 var prevScrollpos = window.pageYOffset;
@@ -57,7 +57,7 @@ function closeNav() {
   document.body.classList.remove("stop-scrolling");
 };
 
-document.querySelectorAll('#menu_link').forEach(item => {
+document.querySelectorAll('.menu_link').forEach(item => {
   item.addEventListener('click', event => {
     closeNav();
   })
@@ -74,6 +74,7 @@ function createImageElement(imageNumber) {
   // Create a new image element
   const img = document.createElement("img");
   img.src = "img/gallery/" + imageNumber + ".jpg";
+  img.alt = "";
   li.appendChild(img);
 
   // Create a new overlay element
@@ -104,7 +105,6 @@ function addImages() {
   numLoadedImages += imagesPerLoad;
   addFullScreenView();
 };
-
 
 
 
