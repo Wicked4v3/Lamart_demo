@@ -129,7 +129,7 @@ p, .list_within_paragraph{
 	margin: 20px 0 40px 0;
 }
 
-.pricing_table h3, .pricing_table_price"{
+.pricing_table h3, .pricing_table_price{
 	font-family: var(--font_open_sans);
 	font-style: normal;
 	font-weight: 400;
@@ -478,7 +478,7 @@ footer{
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 150%;
-	background: var(--purewhite);
+	background-color: var(--purewhite);
 	border: 0;
 	margin: 60px auto;
 	transition: all 0.1s ease;
