@@ -36,10 +36,10 @@
         </li>
       </ul>
 
-      <button onclick="openNav()" class="hamburger_icon" label="Åpne navigasjonsmenyet">
+      <button onclick="openNav()" class="hamburger_icon" aria-label="Åpne navigasjonsmenyet">
         <img class="button_img" src="img/hamburger_menu_icon.svg" alt="Åpne navigasjonsmenyet">
       </button>
-      <button onclick="closeNav()" class="exit_icon" label="Lukk navigasjonsmenyet">
+      <button onclick="closeNav()" class="exit_icon" aria-label="Lukk navigasjonsmenyet">
         <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk navigasjonsmenyet">
       </button>
     </div>
@@ -66,10 +66,10 @@
 
 
     <section class="gallery" id="gallery" aria-label="Galleri">
-      <div id="fullscreen_image" onclick="this.style.display='none';">
-        <button onclick="closeNav()" class="button_exit_fullscreen_view" label="Lukk fullskjermmodus">
+      <div id="fullscreen_image" onclick="this.style.display='none';" aria-label="Trykk hvor som helst på skjermen for å lukke fullskjermmodus">
+        <div class="button_exit_fullscreen_view" aria-label="Lukk fullskjermmodus">
           <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk fullskjermmodus">
-        </button>
+        </div>
       </div>
 
       <ul>
