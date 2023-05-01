@@ -16,24 +16,24 @@
   <nav id="navbar">
     <div class="container">
       <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
-      <ul class="navmenu" aria-setsize="5">
+      <ul class="navmenu">
         <li>
-          <button class="menu_link" onclick="window.location.href='#about_me';" aria-posinset="1">Om meg</button>
+          <button class="menu_link" onclick="window.location.href='#about_me';">Om meg</button>
         </li>
         <li class="menu_seperator" aria-hidden="true">|</li>
         <li>
-          <button class="menu_link" onclick="window.location.href='#gallery';" aria-posinset="2">Galleri</button>
+          <button class="menu_link" onclick="window.location.href='#gallery';">Galleri</button>
         </li>
         <li class="menu_seperator" aria-hidden="true">|</li>
         <li>
-          <button class="menu_link" onclick="window.location.href='#pricing';" aria-posinset="3">Priser</button>
+          <button class="menu_link" onclick="window.location.href='#pricing';">Priser</button>
         </li>
         <li class="menu_seperator" aria-hidden="true">|</li>
         <li>
-          <button class="menu_link" onclick="window.location.href='#contact';" aria-posinset="4">Kontakt</button>
+          <button class="menu_link" onclick="window.location.href='#contact';">Kontakt</button>
         </li>
         <li>
-          <button onclick="window.location.href='https://www.instagram.com/laraa__photography/';" class="instagram_icon" aria-label="Gå til min instagram" aria-posinset="5"></button>
+          <button onclick="window.location.href='https://www.instagram.com/laraa__photography/';" class="instagram_icon" aria-label="Gå til min instagram"></button>
         </li>
       </ul>
 
@@ -68,6 +68,15 @@
 
     <section class="gallery" id="gallery">
       <h1 id="gallery_header">Galleri</h1>
+
+      <h2 id="label_fruit">Available Fruit</h2>
+<ul role="listbox" aria-labelledby="label_fruit">
+  <li role="option" aria-setsize="16" aria-posinset="5">apples</li>
+  <li role="option" aria-setsize="16" aria-posinset="6">bananas</li>
+  <li role="option" aria-setsize="16" aria-posinset="7">cantaloupes</li>
+  <li role="option" aria-setsize="16" aria-posinset="8">dates</li>
+</ul>
+
 
       <div id="fullscreen_image" onclick="this.style.display='none';">
         <button class="button_exit_fullscreen_view" aria-label="Lukk fullskjermmodus">
