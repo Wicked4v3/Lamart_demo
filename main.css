@@ -47,7 +47,6 @@ table {
 	border-spacing: 0
 }
 
-
 a{
 	text-decoration: none;
 }
@@ -84,6 +83,7 @@ hr{
 	box-sizing: border-box;
 }
 
+
 /*GLOBAL FONTS*/
 h1{
 	font-family: var(--font_open_sans);
@@ -114,37 +114,6 @@ p, .list_within_paragraph{
 	font-size: 16px;
 	line-height: 220%;	/* or 35px */
 	color: var(--textblack);
-}
-
-#button_load_more{
-	font-family: var(--font_open_sans);
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	color: var(--pureblack);
-}
-
-.pricing h1{
-	text-align:center;
-	margin: 20px 0 40px 0;
-}
-
-.pricing_table h3, .pricing_table_price{
-	font-family: var(--font_open_sans);
-	font-style: normal;
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 220%;
-	color: var(--pureblack);
-}
-
-.pricing_table_description{
-	font-family: var(--font_open_sans);
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 150%;
-	color: var(--color_prisliste_beskrivelse);
 }
 
 
@@ -318,6 +287,11 @@ nav .container{
 }
 
 #button_load_more{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	color: var(--pureblack);
 	line-height: 35px;
 	width: 126px;
 	height: 51px;
@@ -359,6 +333,29 @@ nav .container{
 	border-bottom: 1px solid black;
 	margin: 5px;
 	padding-top: 15px;
+}
+
+.pricing h1{
+	text-align:center;
+	margin: 20px 0 40px 0;
+}
+
+.pricing_table h3, .pricing_table_price{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 220%;
+	color: var(--pureblack);
+}
+
+.pricing_table_description{
+	font-family: var(--font_open_sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: var(--color_prisliste_beskrivelse);
 }
 
 
