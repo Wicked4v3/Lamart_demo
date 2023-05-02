@@ -16,33 +16,28 @@
   <nav id="navbar">
     <div class="container">
       <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
-      <ul class="navmenu" aria-label="Navigasjonsmeny">
+
+      <button onclick="openNav()" id="hamburger_button" aria-expanded="false">
+        <img class="button_img" src="img/hamburger_menu_icon.svg" aria-hidden="true">
+      </button>
+
+      <ul class="navmenu" id="navmenu">
         <li>
-          <button class="menu_link" onclick="window.location.href='#about_me';">Om meg</button>
-        </li>
-        <li class="menu_seperator" aria-hidden="true">|</li>
-        <li>
-          <button class="menu_link" onclick="window.location.href='#gallery';">Galleri</button>
-        </li>
-        <li class="menu_seperator" aria-hidden="true">|</li>
-        <li>
-          <button class="menu_link" onclick="window.location.href='#pricing';">Priser</button>
-        </li>
-        <li class="menu_seperator" aria-hidden="true">|</li>
-        <li>
-          <button class="menu_link" onclick="window.location.href='#contact';">Kontakt</button>
+          <button class="menu_link" onclick="redirectToSection('about_me')">Om meg</button>
         </li>
         <li>
-          <button onclick="window.location.href='https://www.instagram.com/laraa__photography/';" class="instagram_icon" aria-label="Gå til min instagram"></button>
+          <button class="menu_link" onclick="redirectToSection('gallery')">Galleri</button>
+        </li>
+        <li>
+          <button class="menu_link" onclick="redirectToSection('pricing')">Priser</button>
+        </li>
+        <li>
+          <button class="menu_link" onclick="redirectToSection('contact')">Kontakt</button>
+        </li>
+        <li id="instagram_icon">
+          <button onclick="window.location.href='https://www.instagram.com/laraa__photography/';" aria-label="Gå til min instagram"></button>
         </li>
       </ul>
-
-      <button onclick="openNav()" class="hamburger_icon" aria-label="Åpne navigasjonsmenyet">
-        <img class="button_img" src="img/hamburger_menu_icon.svg" alt="Åpne navigasjonsmenyet">
-      </button>
-      <button onclick="closeNav()" class="exit_icon" aria-label="Lukk navigasjonsmenyet">
-        <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk navigasjonsmenyet">
-      </button>
     </div>
   </nav>
 
@@ -77,51 +72,51 @@
 
       <ul aria-label="Mine fotografier">
         <li>
-          <img src="img/gallery/1.jpg" alt="">
+          <img src="img/gallery/1.jpg" alt="Bryllupsfoto: Brudeparet kysser">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/2.jpg" alt="">
+          <img src="img/gallery/2.jpg" alt="Portrett">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/3.jpg" alt="">
+          <img src="img/gallery/3.jpg" alt="Profilbilde">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/4.jpg" alt="">
+          <img src="img/gallery/4.jpg" alt="Photoshoot">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/5.jpg" alt="">
+          <img src="img/gallery/5.jpg" alt="Bryllupsfoto">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/6.jpg" alt="">
+          <img src="img/gallery/6.jpg" alt="Bryllupsfoto">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/7.jpg" alt="">
+          <img src="img/gallery/7.jpg" alt="Bryllupsfoto">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/8.jpg" alt="">
+          <img src="img/gallery/8.jpg" alt="Bryllupsfoto">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/9.jpg" alt="">
+          <img src="img/gallery/9.jpg" alt="Bedriftsfoto">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/10.jpg" alt="">
+          <img src="img/gallery/10.jpg" alt="Portrett">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/11.jpg" alt="">
+          <img src="img/gallery/11.jpg" alt="Bryllupsfoto">
           <div class="overlay"></div>
         </li>
         <li>
-          <img src="img/gallery/12.jpg" alt="">
+          <img src="img/gallery/12.jpg" alt="Bryllupsfoto">
           <div class="overlay"></div>
         </li>
       </ul>
@@ -268,9 +263,10 @@
     
   </main>
   <footer>
-    <button onclick="window.location.href='#top';" class="button_back_to_top"> 
-      <img src="img/up_arrow_icon.svg">
-      <br>Til toppen igjen
+    <button onclick="redirectToSection('about_me')" class="button_back_to_top"> 
+      <img src="img/up_arrow_icon.svg" aria-label="Hopp tilbake til toppen">
+      <br>
+      <span aria-hidden="true">Til toppen igjen</span>
     </button>
 
     <p class="footer_info"><span class="avoidwrap">©Lamart | Art and Photography | Laura Matiukaite |</span><span class="avoidwrap"> E: laura.matiukaite2@gmail.com</span></p>

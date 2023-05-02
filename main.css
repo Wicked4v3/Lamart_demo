@@ -173,14 +173,14 @@ nav .container{
 }
 
 .navmenu li{
-	margin-left: 20px;
+	margin: 0 20px 0 20px;
 }
 
 #lamart_logo{
 	height: 60%;
 }
 
-.instagram_icon{
+#instagram_icon button{
   height: 28px;
   width: 28px;
   margin: 1px 0 0 50px;
@@ -192,12 +192,12 @@ nav .container{
   transition: all 0.05s ease-out;
 }
 
-.instagram_icon:hover{
+#instagram_icon button:hover{
 	transform: scale(1.05);
 	background-image: url(img/instagram_icon_colorful.svg);
 }
 
-.hamburger_icon, .exit_icon{
+#hamburger_button{
 	display: none;
 }
 
@@ -530,7 +530,7 @@ footer{
 		display: none;
 	}
 	
-	.hamburger_icon{
+	#hamburger_button{
 		display: block;
 		height: 70%;
 		cursor: pointer;
@@ -665,7 +665,7 @@ footer{
 
 
 /*FULLSCREEN NAVIGATION MENU FOR MOBILE DEVICES*/
-.fullscreen_nav #lamart_logo, .fullscreen_nav .instagram_icon, .fullscreen_nav .hamburger_icon{
+.fullscreen_nav #lamart_logo, .fullscreen_nav #instagram_icon{
 	display: none;
 }
 
@@ -681,7 +681,7 @@ footer{
 	transition: all 0.2s ease; /* add transition to the height and top properties */
 }
 
-.fullscreen_nav .exit_icon{
+.fullscreen_nav #hamburger_button{
 	display: block;
 	position: absolute;
 	height: 5.8vh;
@@ -716,7 +716,7 @@ footer{
 	margin-bottom: 30px;
 }
 
-.fullscreen_nav .instagram_icon{
+.fullscreen_nav #instagram_icon{
 	display: none;
 }
 
