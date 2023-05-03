@@ -110,10 +110,10 @@ function openNav() {
   for (let i = 0; i < navElements.length; i++) {
     navElements[i].removeAttribute('tabindex');
   }
-  header.setAttribute("aria-hidden", "true");
+
+  
   main.setAttribute("aria-hidden", "true");
   footer.setAttribute("aria-hidden", "true");
-  nav.removeAttribute("aria-hidden");
 };
 
 function closeNav() {
