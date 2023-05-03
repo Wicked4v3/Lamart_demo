@@ -13,7 +13,10 @@ const header = document.querySelector('header');
 const footer = document.querySelector('footer');
 
 
-var prevScrollpos = window.pageYOffset;
+var prevFocusedElement = document.activeElement;
+
+
+var prevScrollPos = window.pageYOffset;
 // Define the initial number of images and the number of images to add on each load
 let numLoadedImages = 12;
 const imagesPerLoad = 12;
@@ -23,44 +26,70 @@ const imagesPerLoad = 12;
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
+  if (prevScrollPos > currentScrollPos || currentScrollPos < 100) {
     navbar.style.top = "0";
   } else {
     navbar.style.top = "-100px";
   }
-  prevScrollpos = currentScrollPos;
+  prevScrollPos = currentScrollPos;
 };
 
 
 
-
+const fullscreen_image = document.querySelector('#fullscreen_image');
 /*When the user clicks on an image, view it in fullscreen. When the user clicks anywhere on the screen, exit the fullscreen view*/
 function addFullScreenView() {
-  const gallery_overlays = document.querySelectorAll('.gallery .overlay');
-  const fullscreen_image = document.querySelector('#fullscreen_image');
+  const gallery_links = document.querySelectorAll('.gallery_link');
+  
 
-  gallery_overlays.forEach(overlay => {
-  overlay.setAttribute('tabindex', '0');
-  overlay.addEventListener('click', function() {
-    openFullscreenImage(overlay);
-  });
-  overlay.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-      openFullscreenImage(overlay);
-    }
-  });
-});
+  gallery_links.forEach(gallery_link => {
+    gallery_link.addEventListener('click', function() {
+      prevFocusedElement = document.activeElement;
 
-function openFullscreenImage(overlay) {
-  fullscreen_image.style.backgroundImage = 'url(img/gallery/highRes/' + overlay.previousElementSibling.src.split('/').pop() + ')';
-  fullscreen_image.style.display = 'block';
-  body.classList.add("stop-scrolling");
+      
+      fullscreen_image.style.backgroundImage = 'url(img/gallery/highRes/' + gallery_link.querySelector('img').src.split('/').pop() + ')';
+      fullscreen_image.style.display = 'block';
+      fullscreen_image.querySelector('button').focus();
+      body.classList.add("stop-scrolling");
+      
+
+      for (let i = 0; i < bodyElements.length; i++) {
+        bodyElements[i].setAttribute('tabindex', '-1');
+      }
+      fullscreen_image.removeAttribute('tabindex');
+      nav.setAttribute("aria-hidden", "true");
+      header.setAttribute("aria-hidden", "true");
+      main.setAttribute("aria-hidden", "true");
+      footer.setAttribute("aria-hidden", "true");
+    });
+  });
+
+  
+
+  fullscreen_image.addEventListener('click', exitFullscreenView);
 }
 
-  fullscreen_image.addEventListener('click', function() {
+function exitFullscreenView() {  
     fullscreen_image.style.display = 'none';
+
     body.classList.remove("stop-scrolling");
-  });
+    
+    for (let i = 0; i < bodyElements.length; i++) {
+      bodyElements[i].removeAttribute('tabindex');
+    }
+    nav.removeAttribute("aria-hidden");
+    header.removeAttribute("aria-hidden");
+    main.removeAttribute("aria-hidden");
+    footer.removeAttribute("aria-hidden");
+
+    prevFocusedElement.focus();
+}
+
+function preventDefaultKeys(event) {
+  // Check if the event target is not the fullscreen_nav element
+  if (event.target !== fullscreen_image) {
+    event.preventDefault();
+  }
 }
 
 
@@ -84,6 +113,7 @@ function openNav() {
   header.setAttribute("aria-hidden", "true");
   main.setAttribute("aria-hidden", "true");
   footer.setAttribute("aria-hidden", "true");
+  nav.removeAttribute("aria-hidden");
 };
 
 function closeNav() {
@@ -116,11 +146,18 @@ function createImageElement(imageNumber) {
   // Create a new li element
   const li = document.createElement("li");
 
+  // Create a new button element
+  const button = document.createElement("button");
+  li.appendChild(button);
+  button.setAttribute("class", "gallery_link");
+  button.setAttribute('aria-expanded', 'false');
+
   // Create a new image element
   const img = document.createElement("img");
   img.src = "img/gallery/" + imageNumber + ".jpg";
+  img.setAttribute("class", "gallery_image");
   img.alt = "";
-  li.appendChild(img);
+  button.appendChild(img);
 
   // Create a new overlay element
   const overlay = document.createElement("div");
@@ -149,6 +186,14 @@ function addImages() {
   // Update the number of images
   numLoadedImages += imagesPerLoad;
   addFullScreenView();
+
+  const listItems = gallerySection.querySelectorAll('li');
+
+  // Set focus on the 13th list item
+  listItems[12].setAttribute('tabindex', '-1');
+  listItems[12].focus();
+  listItems[12].removeAttribute('tabindex');
+
 };
 
 

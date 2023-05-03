@@ -13,50 +13,62 @@
 
 
 <body>
-  <nav id="navbar">
-    <div class="container">
-      <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
 
-      <button onclick="openNav()" id="hamburger_button" aria-expanded="false">
-        <img class="button_img" src="img/hamburger_menu_icon.svg" aria-hidden="true">
-      </button>
-
-      <ul class="navmenu" id="navmenu">
-        <li>
-          <button class="menu_link" onclick="redirectToSection('about_me')">Om meg</button>
-        </li>
-        <li>
-          <button class="menu_link" onclick="redirectToSection('gallery')">Galleri</button>
-        </li>
-        <li>
-          <button class="menu_link" onclick="redirectToSection('pricing')">Priser</button>
-        </li>
-        <li>
-          <button class="menu_link" onclick="redirectToSection('contact')">Kontakt</button>
-        </li>
-        <li id="instagram_icon">
-          <button onclick="window.location.href='https://www.instagram.com/laraa__photography/';" aria-label="Gå til min instagram"></button>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+  <div id="fullscreen_image">
+    <button class="button_exit_fullscreen_view">
+      <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk fullskjermmodus">
+    </button>
+  </div>
 
   <header>
-    <img src="img/335483850_1278597173009035_8674762375865478595_n_edited.jpg" alt="">
-    <p>Laura Matiukaitė</p>
-    <p id="second_line">Photography - Art</p>
+    <div class="navbar" id="navbar">
+      <div class="container">
+        <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
+
+        
+        <nav>
+          <button onclick="openNav()" id="hamburger_button" aria-expanded="false">
+            <img class="button_img" src="img/hamburger_menu_icon.svg" aria-hidden="true">
+          </button>
+          
+          <ul class="navmenu" id="navmenu">
+            <li>
+              <button class="menu_link" onclick="redirectToSection('about_me')">Om meg</button>
+            </li>
+            <li>
+              <button class="menu_link" onclick="redirectToSection('gallery')">Galleri</button>
+            </li>
+            <li>
+              <button class="menu_link" onclick="redirectToSection('pricing')">Priser</button>
+            </li>
+            <li>
+              <button class="menu_link" onclick="redirectToSection('contact')">Kontakt</button>
+            </li>
+            <li id="instagram_icon">
+              <button onclick="window.location.href='https://www.instagram.com/laraa__photography/';" aria-label="Gå til min instagram"></button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </header>
 
 
+  <div class="mobile_header">
+    <img src="img/335483850_1278597173009035_8674762375865478595_n_edited.jpg" alt="">
+    <p>Laura Matiukaitė</p>
+    <p id="second_line">Photography - Art</p>
+  </div>
+
+
   <main>
-    <section class="about_me" id="about_me" aria-label="Om meg">
+    <section class="about_me" id="about_me">
       <div class="container">
-        <img src="img/laura_matiukaite_round.png" class="portrait" alt="Et bilde av meg">
-        <div>
+        <div id="about_me_article">
           <h1>Labas!</h1>
           <p>Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque. Cursus euismod quis viverra nibh. Vel elit scelerisque mauris pellentesque. Aliquam malesuada bibendum arcu vitae elementum. Sagittis eu volutpat odio facilisis. Sociis natoque penatibus et magnis dis.</p>
         </div>
+        <img src="img/laura_matiukaite_round.png" class="portrait" alt="Et bilde av meg">
       </div>
     </section>
 
@@ -64,60 +76,80 @@
     <section class="gallery" id="gallery" aria-label="Galleri">
       <h1 id="gallery_header">Galleri</h1>
 
-      <div id="fullscreen_image" onclick="this.style.display='none';">
-        <button class="button_exit_fullscreen_view" aria-label="Lukk fullskjermmodus">
-          <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk fullskjermmodus">
-        </button>
-      </div>
+      
 
       <ul aria-label="Mine fotografier">
         <li>
-          <img src="img/gallery/1.jpg" alt="Bryllupsfoto: Brudeparet kysser">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/1.jpg" alt="Bryllupsfoto: Brudeparet kysser. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/2.jpg" alt="Portrett">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/2.jpg" alt="Portrett. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/3.jpg" alt="Profilbilde">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/3.jpg" alt="Profilbilde. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/4.jpg" alt="Photoshoot">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/4.jpg" alt="Photoshoot. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/5.jpg" alt="Bryllupsfoto">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/5.jpg" alt="Bryllupsfoto. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/6.jpg" alt="Bryllupsfoto">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/6.jpg" alt="Bryllupsfoto. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/7.jpg" alt="Bryllupsfoto">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/7.jpg" alt="Bryllupsfoto. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/8.jpg" alt="Bryllupsfoto">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/8.jpg" alt="Bryllupsfoto. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/9.jpg" alt="Bedriftsfoto">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/9.jpg" alt="Bedriftsfoto. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/10.jpg" alt="Portrett">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/10.jpg" alt="Portrett. Klikk for å forstørre!"">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/11.jpg" alt="Bryllupsfoto">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/11.jpg" alt="Bryllupsfoto. Klikk for å forstørre!"">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
-          <img src="img/gallery/12.jpg" alt="Bryllupsfoto">
-          <div class="overlay"></div>
+          <button class="gallery_link">
+            <img class="gallery_image" src="img/gallery/12.jpg" alt="Bryllupsfoto. Klikk for å forstørre!">
+          </button>
+          <div class="overlay" aria-hidden="true"></div>
         </li>
       </ul>
 

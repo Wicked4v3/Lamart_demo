@@ -51,7 +51,7 @@ a{
 	text-decoration: none;
 }
 
-header{
+.mobile_header{
 	display: none;
 }
 
@@ -61,7 +61,7 @@ button{
 	cursor: pointer;
 }
 
-nav, .about_me, .pricing, .contact{
+.navbar, .about_me, .pricing, .contact{
 	padding: 0 0.7em;
 }
 
@@ -79,7 +79,7 @@ hr{
   height: 100%;
 }
 
-#navbar, .contact_form, .contact_form input, .contact_form textarea{
+.navbar, .contact_form, .contact_form input, .contact_form textarea{
 	box-sizing: border-box;
 }
 
@@ -131,7 +131,7 @@ body{
 
 
 /* NAV */
-nav{
+.navbar{
 	background-color: var(--purewhite);
 	height: 10vh;
 	position: fixed;
@@ -142,7 +142,7 @@ nav{
 	z-index: 1;
 }
 
-nav, nav button{
+.navbar, .navbar button{
 	font-family: var(--font_noto_sans);
 	font-style: normal;
 	font-weight: 400;
@@ -154,11 +154,11 @@ nav, nav button{
 	border: none;
 }
 
-nav button:hover{
+.navbar button:hover{
 	font-weight: 600;
 }
 
-nav .container{
+.navbar .container{
 	max-width: 1075px;
 	height: 100%;
 	margin: 0 auto;
@@ -206,6 +206,11 @@ nav .container{
 .portrait{
 	min-width: 344px;
 	object-fit: cover;
+	order:1;
+}
+
+#about_me_article{
+	order: 2;
 }
 
 .about_me{
@@ -240,7 +245,15 @@ nav .container{
 	overflow: hidden;
 }
 
-.gallery ul img {
+.gallery_link {
+	height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.gallery_image {
 	max-height: 100%;
 	min-width: 100%;
 	object-fit: cover;
@@ -275,13 +288,14 @@ nav .container{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	pointer-events: none;
 }
 
 .gallery li:hover .overlay {
 	transform: scale(1);
 }
 
-.gallery li:hover img {
+.gallery_image:hover{
 	transform: scale(1.1);
 	transition: transform 3s ease-in-out;
 }
@@ -308,6 +322,19 @@ nav .container{
 
 #gallery_header{
 	font-size: 0;
+}
+
+.button_exit_fullscreen_view {
+    display: block;
+    position: absolute;
+    height: 25px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    border: none;
+    background: none;
+    padding: 0;
 }
 
 
@@ -530,7 +557,7 @@ footer{
 		display: none;
 	}
 	
-	#hamburger_button{
+	nav{
 		display: block;
 		height: 70%;
 		cursor: pointer;
@@ -538,6 +565,12 @@ footer{
 		border: none;
 	  background: none;
 	  padding: 0;
+	}
+
+	#hamburger_button{
+		display: block;
+		height: 100%;
+		width: 100%;
 	}
 	
 	
@@ -552,8 +585,12 @@ footer{
 	
 	.portrait{
 		min-width: 0;
-		order:2;
 		margin: -40px 0;
+		order: 2;
+	}
+
+	.about_me_article{
+		order: 1;
 	}
 
 	
@@ -633,7 +670,7 @@ footer{
 	
 
 	/*MOBILE HEADER*/
-	header{
+	.mobile_header{
 		display: block;
 		position: relative;
 		height: 85vh;
@@ -642,13 +679,13 @@ footer{
 		text-align: center;
 	}
 
-	header img{
+	.mobile_header img{
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
 	}
 	
-	header p{
+	.mobile_header p{
 		position: absolute;
 		top: 195px;
 		left: 50%;
@@ -658,7 +695,7 @@ footer{
 		padding: 0 2px;
 	}
 	
-	header #second_line{
+	.mobile_header #second_line{
 		top: 225px;
 	}
 }
@@ -681,10 +718,15 @@ footer{
 	transition: all 0.2s ease; /* add transition to the height and top properties */
 }
 
+.fullscreen_nav .container{
+	flex-direction: column-reverse;
+}
+
 .fullscreen_nav #hamburger_button{
 	display: block;
 	position: absolute;
 	height: 5.8vh;
+	width: 5.8vh;
 	top: 20px;
 	right: 20px;
 	cursor: pointer;
@@ -693,20 +735,7 @@ footer{
   padding: 0;
 }
 
-.button_exit_fullscreen_view{
-	display: block;
-	position: absolute;
-	height: 25px;
-	top: 20px;
-	right: 20px;
-	cursor: pointer;
-	filter:  brightness(0) invert(1);
-	border: none;
-  background: none;
-  padding: 0;
-}
-
-.fullscreen_nav ul{
+.fullscreen_nav .navmenu{
 	display: block;
 	margin: 0 auto;
 	padding: 0;
