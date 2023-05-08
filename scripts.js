@@ -1,25 +1,22 @@
+const body = document.querySelector('body');
+const bodyElements = body.getElementsByTagName('*');
+const header = document.querySelector('header');
+const nav = document.querySelector('nav');
+const navElementsArray = Array.from(nav.querySelectorAll('*'));
+const main = document.querySelector('main');
+const footer = document.querySelector('footer');
+
 const navbar = document.getElementById("navbar");
 const hamburgerButton = document.getElementById("hamburger_button");
+const mobileBanner = document.getElementById("mobile_banner");
 const gallerySection = document.getElementById("gallery");
 const loadMoreButton = document.getElementById("button_load_more");
 
-const body = document.querySelector('body');
-const bodyElements = body.getElementsByTagName('*');
-const nav = document.querySelector('nav');
-const navElements = nav.getElementsByTagName('*');
-
-const main = document.querySelector('main');
-const header = document.querySelector('header');
-const footer = document.querySelector('footer');
-
-const mobileBanner = document.getElementById("mobile_banner");
-
-
+var prevScrollPos = window.pageYOffset;
 var prevFocusedElement = document.activeElement;
 
 
-var prevScrollPos = window.pageYOffset;
-// Define the initial number of images and the number of images to add on each load
+
 let numLoadedImages = 12;
 const imagesPerLoad = 12;
 
@@ -38,27 +35,27 @@ window.onscroll = function() {
 
 
 
-const fullscreen_image = document.querySelector('#fullscreen_image');
-/*When the user clicks on an image, view it in fullscreen. When the user clicks anywhere on the screen, exit the fullscreen view*/
+const fullscreenImage = document.querySelector('#fullscreen_image');
+/*When the user clicks on an image, view it in fullscreen. When the user clicks anywhere on the screen, exit the fullscreen view
+Has to be re-run when new images are added to the galery
+*/
 function addFullScreenView() {
   const gallery_links = document.querySelectorAll('.gallery_link');
-  
 
   gallery_links.forEach(gallery_link => {
     gallery_link.addEventListener('click', function() {
       prevFocusedElement = document.activeElement;
-
       
-      fullscreen_image.style.backgroundImage = 'url(img/gallery/highRes/' + gallery_link.querySelector('img').src.split('/').pop() + ')';
-      fullscreen_image.style.display = 'block';
-      fullscreen_image.querySelector('button').focus();
+      fullscreenImage.style.backgroundImage = 'url(img/gallery/highRes/' + gallery_link.querySelector('img').src.split('/').pop() + ')';
+      fullscreenImage.style.display = 'block';
+      fullscreenImage.querySelector('button').focus();
       body.classList.add("stop-scrolling");
-      
 
       for (let i = 0; i < bodyElements.length; i++) {
         bodyElements[i].setAttribute('tabindex', '-1');
       }
-      fullscreen_image.removeAttribute('tabindex');
+      fullscreenImage.removeAttribute('tabindex');
+
       nav.setAttribute("aria-hidden", "true");
       header.setAttribute("aria-hidden", "true");
       main.setAttribute("aria-hidden", "true");
@@ -66,19 +63,18 @@ function addFullScreenView() {
     });
   });
 
-  
-
-  fullscreen_image.addEventListener('click', exitFullscreenView);
+  fullscreenImage.addEventListener('click', exitFullscreenView);
 }
 
 function exitFullscreenView() {  
-    fullscreen_image.style.display = 'none';
+    fullscreenImage.style.display = 'none';
 
     body.classList.remove("stop-scrolling");
     
     for (let i = 0; i < bodyElements.length; i++) {
       bodyElements[i].removeAttribute('tabindex');
     }
+
     nav.removeAttribute("aria-hidden");
     header.removeAttribute("aria-hidden");
     main.removeAttribute("aria-hidden");
@@ -86,14 +82,6 @@ function exitFullscreenView() {
 
     prevFocusedElement.focus();
 }
-
-function preventDefaultKeys(event) {
-  // Check if the event target is not the fullscreen_nav element
-  if (event.target !== fullscreen_image) {
-    event.preventDefault();
-  }
-}
-
 
 
 
@@ -107,12 +95,12 @@ function openNav() {
   hamburgerButton.querySelector("img").src = "img/exit_menu_icon.svg";
 
   for (let i = 0; i < bodyElements.length; i++) {
-    bodyElements[i].setAttribute('tabindex', '-1');
+    if (!navElementsArray.includes(bodyElements[i])) {
+      bodyElements[i].setAttribute('tabindex', '-1');
+    } else {
+      bodyElements[i].removeAttribute('tabindex');
+    }
   }
-  for (let i = 0; i < navElements.length; i++) {
-    navElements[i].removeAttribute('tabindex');
-  }
-
   
   main.setAttribute("aria-hidden", "true");
   footer.setAttribute("aria-hidden", "true");
@@ -130,6 +118,7 @@ function closeNav() {
   for (let i = 0; i < bodyElements.length; i++) {
     bodyElements[i].removeAttribute('tabindex');
   }
+
   main.removeAttribute("aria-hidden");
   footer.removeAttribute("aria-hidden");
   mobileBanner.removeAttribute("aria-hidden");
@@ -143,26 +132,35 @@ document.querySelectorAll('.menu_link').forEach(item => {
 
 
 
-
 // Define a function to create a new image and overlay element
-function createImageElement(imageNumber) {
-  // Create a new li element
+async function createImageElement(imageNumber) {
   const li = document.createElement("li");
 
-  // Create a new button element
   const button = document.createElement("button");
-  li.appendChild(button);
   button.setAttribute("class", "gallery_link");
-  button.setAttribute('aria-expanded', 'false');
+  li.appendChild(button);
 
-  // Create a new image element
   const img = document.createElement("img");
   img.src = "img/gallery/" + imageNumber + ".jpg";
   img.setAttribute("class", "gallery_image");
-  img.alt = "";
+
+
+
+  //img.alt = "";
+  try {
+    const response = await fetch("img/gallery/" + imageNumber + ".txt");
+    if (!response.ok) throw new Error("Failed to load image description");
+      const description = await response.text();
+      img.alt = description.trim();
+    } catch (error) {
+      console.error(error);
+      img.alt = "";
+    }
+
+
+
   button.appendChild(img);
 
-  // Create a new overlay element
   const overlay = document.createElement("div");
   overlay.className = "overlay";
   li.appendChild(overlay);
@@ -186,17 +184,15 @@ function addImages() {
   const ul = gallerySection.getElementsByTagName("ul")[0];
   ul.appendChild(fragment);
 
+  // Set focus on the first of the newly added images
+  const listItems = gallerySection.querySelectorAll('li');
+  listItems[numLoadedImages].setAttribute('tabindex', '-1');
+  listItems[numLoadedImages].focus();
+  listItems[numLoadedImages].removeAttribute('tabindex');
+
   // Update the number of images
   numLoadedImages += imagesPerLoad;
   addFullScreenView();
-
-  const listItems = gallerySection.querySelectorAll('li');
-
-  // Set focus on the 13th list item
-  listItems[12].setAttribute('tabindex', '-1');
-  listItems[12].focus();
-  listItems[12].removeAttribute('tabindex');
-
 };
 
 
