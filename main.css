@@ -51,7 +51,7 @@ a{
 	text-decoration: none;
 }
 
-.mobile_header{
+.mobile_banner{
 	display: none;
 }
 
@@ -670,7 +670,7 @@ footer{
 	
 
 	/*MOBILE HEADER*/
-	.mobile_header{
+	.mobile_banner{
 		display: block;
 		position: relative;
 		height: 85vh;
@@ -679,13 +679,13 @@ footer{
 		text-align: center;
 	}
 
-	.mobile_header img{
+	.mobile_banner img{
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
 	}
 	
-	.mobile_header p{
+	.mobile_banner p{
 		position: absolute;
 		top: 195px;
 		left: 50%;
@@ -695,14 +695,14 @@ footer{
 		padding: 0 2px;
 	}
 	
-	.mobile_header #second_line{
+	.mobile_banner #second_line{
 		top: 225px;
 	}
 }
 
 
 /*FULLSCREEN NAVIGATION MENU FOR MOBILE DEVICES*/
-.fullscreen_nav #lamart_logo, .fullscreen_nav #instagram_icon, #mobile_header{
+.fullscreen_nav #lamart_logo, .fullscreen_nav #instagram_icon{
 	display: none;
 }
 

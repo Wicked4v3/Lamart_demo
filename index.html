@@ -23,11 +23,10 @@
     <div class="navbar" id="navbar">
       <div class="container">
         <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
-
         
         <nav>
           <button onclick="openNav()" id="hamburger_button" aria-expanded="false">
-            <img class="button_img" src="img/hamburger_menu_icon.svg" aria-hidden="true">
+            <img class="button_img" src="img/hamburger_menu_icon.svg" alt="Åpne navigasjonsmeny" aria-hidden="true">
           </button>
           
           <ul class="navmenu" id="navmenu">
@@ -51,8 +50,8 @@
       </div>
     </div>
 
-    <div class="mobile_header" id="mobile_header">
-      <img src="img/335483850_1278597173009035_8674762375865478595_n_edited.jpg" alt="">
+    <div class="mobile_banner" id="mobile_banner">
+      <img src="img/335483850_1278597173009035_8674762375865478595_n_edited.jpg" alt="" aria-label="Nettside banner">
       <p>Laura Matiukaitė</p>
       <p id="second_line">Photography - Art</p>
     </div>
@@ -72,9 +71,7 @@
 
 
     <section class="gallery" id="gallery" aria-label="Galleri">
-      <h1 id="gallery_header">Galleri</h1>
-
-      
+      <h1 id="gallery_header">Galleri</h1>      
 
       <ul aria-label="Mine fotografier">
         <li>
@@ -133,13 +130,13 @@
         </li>
         <li>
           <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/10.jpg" alt="Portrett. Klikk for å forstørre!"">
+            <img class="gallery_image" src="img/gallery/10.jpg" alt="Portrett. Klikk for å forstørre!">
           </button>
           <div class="overlay" aria-hidden="true"></div>
         </li>
         <li>
           <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/11.jpg" alt="Bryllupsfoto. Klikk for å forstørre!"">
+            <img class="gallery_image" src="img/gallery/11.jpg" alt="Bryllupsfoto. Klikk for å forstørre!">
           </button>
           <div class="overlay" aria-hidden="true"></div>
         </li>
@@ -290,19 +287,18 @@
         </div>
       </div>
     </section>
-    
   </main>
+
+
   <footer>
     <button onclick="redirectToSection('about_me')" class="button_back_to_top"> 
-      <img src="img/up_arrow_icon.svg" aria-label="Hopp tilbake til toppen">
+      <img src="img/up_arrow_icon.svg" alt="Hopp tilbake til toppen">
       <br>
       <span aria-hidden="true">Til toppen igjen</span>
     </button>
 
     <p class="footer_info"><span class="avoidwrap">©Lamart | Art and Photography | Laura Matiukaite |</span><span class="avoidwrap"> E: laura.matiukaite2@gmail.com</span></p>
   </footer>
-
-
   <!--HAS TO BE LOADED LAST:-->
    <script src="scripts.js"></script>
 </body>

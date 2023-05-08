@@ -12,6 +12,8 @@ const main = document.querySelector('main');
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
 
+const mobileBanner = document.getElementById("mobile_banner");
+
 
 var prevFocusedElement = document.activeElement;
 
@@ -114,6 +116,7 @@ function openNav() {
   
   main.setAttribute("aria-hidden", "true");
   footer.setAttribute("aria-hidden", "true");
+  mobileBanner.setAttribute("aria-hidden", "true");
 };
 
 function closeNav() {
@@ -127,9 +130,9 @@ function closeNav() {
   for (let i = 0; i < bodyElements.length; i++) {
     bodyElements[i].removeAttribute('tabindex');
   }
-  header.removeAttribute("aria-hidden");
   main.removeAttribute("aria-hidden");
   footer.removeAttribute("aria-hidden");
+  mobileBanner.removeAttribute("aria-hidden");
 };
 
 document.querySelectorAll('.menu_link').forEach(item => {
