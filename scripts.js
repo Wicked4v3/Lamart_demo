@@ -20,6 +20,13 @@ let numLoadedImages = 12;
 const imagesPerLoad = 12;
 
 
+const form = document.getElementById('myForm');
+const endpointUrl = 'https://formsubmit.co';
+const emailAddress = 'vanaquvojoba@rungel.net';
+const encodedEmail = btoa(emailAddress);
+form.action = `${endpointUrl}/${encodedEmail}`;
+
+
 const imageDescriptions = [
   { number: "13", description: "Sett inn et bildebeskrivelse" },
   { number: "14", description: "Sett inn et bildebeskrivelse" },
@@ -219,25 +226,25 @@ function redirectToSection(sectionName) {
 }
 
 
-const form = document.getElementById('myForm');
-  form.addEventListener('submit', function(event) {
-    fetch(event.target.action, {
-      method: 'POST',
-      body: new FormData(form)
-    })
-    .then(response => {
-      // handle the response
-      if (response.ok) {
-        // reset the form
-        form.reset();
-      } else {
-        throw new Error('Beklager, noe gikk galt... Vennligst send epost til laura.matiukaite2@gmail.com');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+
+form.addEventListener('submit', function(event) {
+  fetch(event.target.action, {
+    method: 'POST',
+    body: new FormData(form)
+  })
+  .then(response => {
+    // handle the response
+    if (response.ok) {
+      // reset the form
+      form.reset();
+    } else {
+      throw new Error('Beklager, noe gikk galt... Vennligst send epost til laura.matiukaite2@gmail.com');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
   });
+});
 
 
 window.onload = addFullScreenView;
