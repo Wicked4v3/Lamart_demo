@@ -51,7 +51,7 @@ a{
 	text-decoration: none;
 }
 
-.mobile_banner, #topic{
+.mobile_banner, .blockspam, .form_option{
 	display: none;
 }
 
@@ -193,8 +193,8 @@ body{
 }
 
 #instagram_icon button:hover{
-	transform: scale(1.05);
 	background-image: url(img/instagram_icon_colorful.svg);
+	transform: scale(1.05);
 }
 
 #hamburger_button{

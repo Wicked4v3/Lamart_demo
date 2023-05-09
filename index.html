@@ -247,7 +247,7 @@
         <img src="img/54513681_1288280491345292_8807770354364875079_n.jpg" class="contact_form_image" alt="">
 
         <div class="contact_form">
-          <form id="myForm" action="" method="POST">
+          <form id="my_form" action="https://formsubmit.co/04ff1451105acb632d08f6da1056b434" method="POST">
             <div>
               <h1>Ta kontakt</h1>
               <p>Du kan fylle ut skjemaet nedenfor, eller nå meg på:</p>
@@ -257,15 +257,26 @@
               <a href="https://www.instagram.com/laraa__photography/">
                 <img src="img/instagram_icon.svg" class="social_links" alt="Kontakt meg på instagram!">laraa__photography
               </a><br>
-              <a href="mailto:laura.matiukaite2@gmail.com">
-                <img src="img/email_icon.svg" class="social_links" alt="Kontakt meg på mail!">laura.matiukaite2@gmail.com
-              </a><br>
+              <div>
+                <img src="img/email_icon.svg" class="social_links" alt="Kontakt meg på mail!">
+                <p class="avoidwrap"><span class="blockspam" aria-hidden="true">lamlam</span>laura.matiukaite2@gmail.com</p>
+              </div><br>
               <hr>
             </div>
 
             <div>
               <label for="name">Ditt navn*</label><br>
               <input required id="name" type="text" name="name" placeholder="Skriv inn navnet ditt">
+            </div>
+
+            <div class="form_option" aria-hidden="true">
+              <label for="lastname">La dette feltet være tom*</label><br>
+              <input id="lastname" type="text" name="lastname" placeholder="La dette feltet være tom">
+            </div>
+
+            <div class="form_option" aria-hidden="true">
+              <label for="topic">La dette feltet være tom*</label><br>
+              <input id="topic" type="text" name="_honey" placeholder="La dette feltet være tom">
             </div>
 
             <div>
@@ -282,8 +293,6 @@
               <label for="message">Melding*</label><br>
               <textarea required id="message" name="message" rows="5" placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
             </div>
-
-            <input type="text" name="_honey" id="topic" placeholder="Hva gjelder det?" aria-hidden="true">
 
             <!-- <input type="hidden" name="_captcha" value="false"> -->
 

@@ -11,6 +11,7 @@ const hamburgerButton = document.getElementById("hamburger_button");
 const mobileBanner = document.getElementById("mobile_banner");
 const gallerySection = document.getElementById("gallery");
 const loadMoreButton = document.getElementById("button_load_more");
+const honeypotField = document.getElementById("lastname");
 
 var prevScrollPos = window.pageYOffset;
 var prevFocusedElement = document.activeElement;
@@ -18,13 +19,6 @@ var prevFocusedElement = document.activeElement;
 
 let numLoadedImages = 12;
 const imagesPerLoad = 12;
-
-
-const form = document.getElementById('myForm');
-const endpointUrl = 'https://formsubmit.co';
-const emailAddress = 'vanaquvojoba@rungel.net';
-const encodedEmail = btoa(emailAddress);
-form.action = `${endpointUrl}/${encodedEmail}`;
 
 
 const imageDescriptions = [
@@ -227,24 +221,18 @@ function redirectToSection(sectionName) {
 
 
 
-form.addEventListener('submit', function(event) {
-  fetch(event.target.action, {
-    method: 'POST',
-    body: new FormData(form)
-  })
-  .then(response => {
-    // handle the response
-    if (response.ok) {
-      // reset the form
-      form.reset();
-    } else {
-      throw new Error('Beklager, noe gikk galt... Vennligst send epost til laura.matiukaite2@gmail.com');
+  document.getElementById('my_form').addEventListener('submit', (event) => {
+    // Check if honeypot field is empty or has a value
+    // If honeypot field is filled, this is likely a spam submission
+    if (honeypotField.value !== '') {
+      event.preventDefault();
+      return false;
     }
-  })
-  .catch(error => {
-    console.error('Error:', error);
+
+    // Honeypot field is empty, this is likely a legitimate submission
+    // Proceed with the default form submission
   });
-});
+
 
 
 window.onload = addFullScreenView;
