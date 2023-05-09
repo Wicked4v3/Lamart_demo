@@ -51,7 +51,7 @@ a{
 	text-decoration: none;
 }
 
-.mobile_banner{
+.mobile_banner, #topic{
 	display: none;
 }
 

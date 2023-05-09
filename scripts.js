@@ -16,9 +16,24 @@ var prevScrollPos = window.pageYOffset;
 var prevFocusedElement = document.activeElement;
 
 
-
 let numLoadedImages = 12;
 const imagesPerLoad = 12;
+
+
+const imageDescriptions = [
+  { number: "13", description: "Sett inn et bildebeskrivelse" },
+  { number: "14", description: "Sett inn et bildebeskrivelse" },
+  { number: "15", description: "Sett inn et bildebeskrivelse" },
+  { number: "16", description: "Sett inn et bildebeskrivelse" },
+  { number: "17", description: "Sett inn et bildebeskrivelse" },
+  { number: "18", description: "Sett inn et bildebeskrivelse" },
+  { number: "19", description: "Sett inn et bildebeskrivelse" },
+  { number: "20", description: "Sett inn et bildebeskrivelse" },
+  { number: "21", description: "Sett inn et bildebeskrivelse" },
+  { number: "22", description: "Sett inn et bildebeskrivelse" },
+  { number: "23", description: "Sett inn et bildebeskrivelse" },
+  { number: "24", description: "Sett inn et bildebeskrivelse" },
+];
 
 
 
@@ -133,7 +148,7 @@ document.querySelectorAll('.menu_link').forEach(item => {
 
 
 // Define a function to create a new image and overlay element
-async function createImageElement(imageNumber) {
+function createImageElement(imageNumber) {
   const li = document.createElement("li");
 
   const button = document.createElement("button");
@@ -144,20 +159,14 @@ async function createImageElement(imageNumber) {
   img.src = "img/gallery/" + imageNumber + ".jpg";
   img.setAttribute("class", "gallery_image");
 
-
-
-  //img.alt = "";
-  try {
-    const response = await fetch("img/gallery/" + imageNumber + ".txt");
-    if (!response.ok) throw new Error("Failed to load image description");
-      const description = await response.text();
-      img.alt = description.trim();
-    } catch (error) {
-      console.error(error);
-      img.alt = "";
-    }
-
-
+  const imageDescription = imageDescriptions.find(
+    (image) => image.number === imageNumber.toString()
+  );
+  if (imageDescription) {
+    img.alt = imageDescription.description;
+  } else {
+    img.alt="";
+  }
 
   button.appendChild(img);
 
@@ -208,6 +217,27 @@ function redirectToSection(sectionName) {
   heading.focus();
   heading.removeAttribute('tabindex');
 }
+
+
+const form = document.getElementById('myForm');
+  form.addEventListener('submit', function(event) {
+    fetch(event.target.action, {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(response => {
+      // handle the response
+      if (response.ok) {
+        // reset the form
+        form.reset();
+      } else {
+        throw new Error('Beklager, noe gikk galt... Vennligst send epost til laura.matiukaite2@gmail.com');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
 
 
 window.onload = addFullScreenView;

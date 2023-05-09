@@ -247,7 +247,7 @@
         <img src="img/54513681_1288280491345292_8807770354364875079_n.jpg" class="contact_form_image" alt="">
 
         <div class="contact_form">
-          <form target="_blank" action="https://formsubmit.co/sabarero@mailgolem.com" method="POST">
+          <form id="myForm" action="https://formsubmit.co/sabarero@mailgolem.com" method="POST">
             <div>
               <h1>Ta kontakt</h1>
               <p>Du kan fylle ut skjemaet nedenfor, eller nå meg på:</p>
@@ -270,7 +270,7 @@
 
             <div>
               <label for="email">Din epost*</label><br>
-              <input required id="email" type="email" name="email" placeholder="Tast inn epostadressa di">
+              <input required id="email" type="email" name="email" placeholder="Tast inn epostadressen din">
             </div>
 
             <div>
@@ -282,6 +282,11 @@
               <label for="message">Melding*</label><br>
               <textarea required id="message" name="message" rows="5" placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
             </div>
+
+            <input type="text" name="_honey" id="topic" placeholder="Hva gjelder det?" aria-hidden="true">
+
+            <!-- <input type="hidden" name="_captcha" value="false"> -->
+
             <button aria-label="Send inn skjemaet" type="submit">Send</button>
           </form>
         </div>
