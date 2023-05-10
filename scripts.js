@@ -1,3 +1,5 @@
+// Get references to HTML elements.
+// These will be used for various functionality throughout the script.
 const body = document.querySelector('body');
 const bodyElements = body.getElementsByTagName('*');
 const header = document.querySelector('header');
@@ -10,35 +12,44 @@ const navbar = document.getElementById("navbar");
 const hamburgerButton = document.getElementById("hamburger_button");
 const mobileBanner = document.getElementById("mobile_banner");
 const gallerySection = document.getElementById("gallery");
+const fullscreenImage = document.querySelector('#fullscreen_image');
 const loadMoreButton = document.getElementById("button_load_more");
+
+// This is a honeypot field used as a spam prevention technique in the form.
 const honeypotField = document.getElementById("lastname");
 
+// Store the previous scroll position for comparison on scroll events.
 var prevScrollPos = window.pageYOffset;
+
+// Store the previous focused element for correct redirecting after exiting fullscreen image view.
 var prevFocusedElement = document.activeElement;
 
-
+// Constants for controlling the image loading functionality.
 let numLoadedImages = 12;
 const imagesPerLoad = 12;
 
-
+// Array containing descriptions for the gallery images that are loaded in by the image loading functionality.
+// Each object in the array represents an image and has two properties: 
+// "number" - the image number (used to match the image file)
+// "description" - the alt text for the image
 const imageDescriptions = [
-  { number: "13", description: "Sett inn et bildebeskrivelse" },
-  { number: "14", description: "Sett inn et bildebeskrivelse" },
-  { number: "15", description: "Sett inn et bildebeskrivelse" },
-  { number: "16", description: "Sett inn et bildebeskrivelse" },
-  { number: "17", description: "Sett inn et bildebeskrivelse" },
-  { number: "18", description: "Sett inn et bildebeskrivelse" },
-  { number: "19", description: "Sett inn et bildebeskrivelse" },
-  { number: "20", description: "Sett inn et bildebeskrivelse" },
-  { number: "21", description: "Sett inn et bildebeskrivelse" },
-  { number: "22", description: "Sett inn et bildebeskrivelse" },
-  { number: "23", description: "Sett inn et bildebeskrivelse" },
-  { number: "24", description: "Sett inn et bildebeskrivelse" },
-];
+  { number: "13", description: "Sett inn bildebeskrivelsen her" },
+  { number: "14", description: "Sett inn bildebeskrivelsen her" },
+  { number: "15", description: "Sett inn bildebeskrivelsen her" },
+  { number: "16", description: "Sett inn bildebeskrivelsen her" },
+  { number: "17", description: "Sett inn bildebeskrivelsen her" },
+  { number: "18", description: "Sett inn bildebeskrivelsen her" },
+  { number: "19", description: "Sett inn bildebeskrivelsen her" },
+  { number: "20", description: "Sett inn bildebeskrivelsen her" },
+  { number: "21", description: "Sett inn bildebeskrivelsen her" },
+  { number: "22", description: "Sett inn bildebeskrivelsen her" },
+  { number: "23", description: "Sett inn bildebeskrivelsen her" },
+  { number: "24", description: "Sett inn bildebeskrivelsen her" },
+  ];
 
 
 
-/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+// Scroll event listener to show/hide the navbar based on scroll direction.
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollPos > currentScrollPos || currentScrollPos < 100) {
@@ -51,10 +62,9 @@ window.onscroll = function() {
 
 
 
-const fullscreenImage = document.querySelector('#fullscreen_image');
-/*When the user clicks on an image, view it in fullscreen. When the user clicks anywhere on the screen, exit the fullscreen view
-Has to be re-run when new images are added to the galery
-*/
+// This function adds fullscreen view functionality to gallery images.
+// It also ensures proper tab order and ARIA accessibility when an image is enlarged.
+// It's necessary to call this function whenever new images are added to the gallery to ensure they also have fullscreen view functionality.
 function addFullScreenView() {
   const gallery_links = document.querySelectorAll('.gallery_link');
 
@@ -82,26 +92,31 @@ function addFullScreenView() {
   fullscreenImage.addEventListener('click', exitFullscreenView);
 }
 
+// Function to exit the fullscreen view of an image.
+// It also ensures proper tab order and ARIA accessibility.
+// This is called when the user clicks anywhere inside the fullscreen image container.
 function exitFullscreenView() {  
-    fullscreenImage.style.display = 'none';
+  fullscreenImage.style.display = 'none';
 
-    body.classList.remove("stop-scrolling");
-    
-    for (let i = 0; i < bodyElements.length; i++) {
-      bodyElements[i].removeAttribute('tabindex');
-    }
+  body.classList.remove("stop-scrolling");
 
-    nav.removeAttribute("aria-hidden");
-    header.removeAttribute("aria-hidden");
-    main.removeAttribute("aria-hidden");
-    footer.removeAttribute("aria-hidden");
+  for (let i = 0; i < bodyElements.length; i++) {
+    bodyElements[i].removeAttribute('tabindex');
+  }
 
-    prevFocusedElement.focus();
+  nav.removeAttribute("aria-hidden");
+  header.removeAttribute("aria-hidden");
+  main.removeAttribute("aria-hidden");
+  footer.removeAttribute("aria-hidden");
+
+  prevFocusedElement.focus();
 }
 
 
 
-/*Open/close the hamburger menu*/
+// This function opens the hamburger menu and makes various accessibility-related changes:
+// It disables scrolling, changes the hamburger button's functionality and image, 
+// and modifies tabindex and aria-hidden attributes to ensure proper tab order and screen reader behavior.
 function openNav() {
   navbar.classList.add("fullscreen_nav");
   body.classList.add("stop-scrolling");
@@ -123,6 +138,9 @@ function openNav() {
   mobileBanner.setAttribute("aria-hidden", "true");
 };
 
+// This function closes the hamburger menu and makes various accessibility-related changes:
+// It enables scrolling, changes the hamburger button's functionality and image, 
+// and modifies tabindex and aria-hidden attributes to ensure proper tab order and screen reader behavior.
 function closeNav() {
   navbar.classList.remove("fullscreen_nav");
   body.classList.remove("stop-scrolling");
@@ -140,6 +158,7 @@ function closeNav() {
   mobileBanner.removeAttribute("aria-hidden");
 };
 
+// Event listener to close the navigation menu when a link is clicked.
 document.querySelectorAll('.menu_link').forEach(item => {
   item.addEventListener('click', event => {
     closeNav();
@@ -148,7 +167,16 @@ document.querySelectorAll('.menu_link').forEach(item => {
 
 
 
-// Define a function to create a new image and overlay element
+// This function creates a new image element for the gallery. 
+// The created element is a list item (li) that includes a button with an image and an overlay div:
+// <li>
+//   <button class="gallery_link">
+//     <img class="gallery_image" src="..." alt="..." />
+//   </button>
+//   <div class="overlay"></div>
+// </li>
+// The image source and alt text are set based on the image number.
+// The function returns the newly created list item.
 function createImageElement(imageNumber) {
   const li = document.createElement("li");
 
@@ -162,7 +190,7 @@ function createImageElement(imageNumber) {
 
   const imageDescription = imageDescriptions.find(
     (image) => image.number === imageNumber.toString()
-  );
+    );
   if (imageDescription) {
     img.alt = imageDescription.description;
   } else {
@@ -178,35 +206,34 @@ function createImageElement(imageNumber) {
   return li;
 };
 
-// Define a function to add the specified number of images to the gallery
+// Function to add a specified number of images to the gallery.
+// This is called by the "Load More" button's click event.
 function addImages() {
   loadMoreButton.style.display = 'none';
-  // Create a document fragment to hold the new elements
+
   const fragment = document.createDocumentFragment();
 
-  // Loop through the number of images to add and create new image elements
   for (let i = numLoadedImages + 1; i <= numLoadedImages + imagesPerLoad; i += 1) {
     const li = createImageElement(i);
     fragment.appendChild(li);
   }
 
-  // Add the new elements to the gallery
   const ul = gallerySection.getElementsByTagName("ul")[0];
   ul.appendChild(fragment);
 
-  // Set focus on the first of the newly added images
   const listItems = gallerySection.querySelectorAll('li');
   listItems[numLoadedImages].setAttribute('tabindex', '-1');
   listItems[numLoadedImages].focus();
   listItems[numLoadedImages].removeAttribute('tabindex');
 
-  // Update the number of images
   numLoadedImages += imagesPerLoad;
   addFullScreenView();
 };
 
 
 
+// This function scrolls to a specified section and focuses on the section's heading. 
+// It's used for internal navigation links to ensure proper focus management.
 function redirectToSection(sectionName) {
   const section = document.getElementById(sectionName);
   const heading = section.querySelector("h1");
@@ -221,18 +248,16 @@ function redirectToSection(sectionName) {
 
 
 
-  document.getElementById('my_form').addEventListener('submit', (event) => {
-    // Check if honeypot field is empty or has a value
-    // If honeypot field is filled, this is likely a spam submission
-    if (honeypotField.value !== '') {
-      event.preventDefault();
-      return false;
-    }
-
-    // Honeypot field is empty, this is likely a legitimate submission
-    // Proceed with the default form submission
-  });
+// Event listener for form submission.
+// This checks the honeypot field and prevents form submission if it contains a value.
+document.getElementById('my_form').addEventListener('submit', (event) => {
+  if (honeypotField.value !== '') {
+    event.preventDefault();
+    return false;
+  }
+});
 
 
 
+// When the page loads, add fullscreen view functionality to the existing gallery images.
 window.onload = addFullScreenView;

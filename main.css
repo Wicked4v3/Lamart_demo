@@ -75,8 +75,8 @@ hr{
 .avoidwrap { display:inline-block; }
 
 .button_img {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .navbar, .contact_form, .contact_form input, .contact_form textarea{
@@ -181,15 +181,15 @@ body{
 }
 
 #instagram_icon button{
-  height: 28px;
-  width: 28px;
-  margin: 1px 0 0 50px;
-  cursor: pointer;
-  border: none;
-  background-image: url(img/instagram_icon.svg);
-  padding: 0;
-  display: block;
-  transition: all 0.05s ease-out;
+	height: 28px;
+	width: 28px;
+	margin: 1px 0 0 50px;
+	cursor: pointer;
+	border: none;
+	background-image: url(img/instagram_icon.svg);
+	padding: 0;
+	display: block;
+	transition: all 0.05s ease-out;
 }
 
 #instagram_icon button:hover{
@@ -247,10 +247,10 @@ body{
 
 .gallery_link {
 	height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  border: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
 }
 
 .gallery_image {
@@ -325,16 +325,16 @@ body{
 }
 
 .button_exit_fullscreen_view {
-    display: block;
-    position: absolute;
-    height: 25px;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    filter: brightness(0) invert(1);
-    border: none;
-    background: none;
-    padding: 0;
+	display: block;
+	position: absolute;
+	height: 25px;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	filter: brightness(0) invert(1);
+	border: none;
+	background: none;
+	padding: 0;
 }
 
 
@@ -407,8 +407,8 @@ body{
 }
 
 .social_links {
-  width: 22px;
-  margin: 0 8.5px -3.3px 6px;
+	width: 22px;
+	margin: 0 8.5px -3.3px 6px;
 }
 
 .contact_form a,.contact_form p{
@@ -476,7 +476,7 @@ body{
 	width: 125px;
 	height: 45px;
 	margin-top: 0.7em;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+	filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .contact_form button:hover{
@@ -514,7 +514,7 @@ footer{
 
 .button_back_to_top:hover {
 	transform: scale(1.15);
-	}
+}
 
 .footer_info{
 	font-family: var(--font_open_sans);
@@ -563,8 +563,8 @@ footer{
 		cursor: pointer;
 
 		border: none;
-	  background: none;
-	  padding: 0;
+		background: none;
+		padding: 0;
 	}
 
 	#hamburger_button{
@@ -630,8 +630,8 @@ footer{
 	}
 
 	.social_links{
-	  margin-left: 7px;
-	  margin-right: 15px;
+		margin-left: 7px;
+		margin-right: 15px;
 	}
 	
 	.contact_form h1 {
@@ -731,8 +731,8 @@ footer{
 	right: 20px;
 	cursor: pointer;
 	border: none;
-  background: none;
-  padding: 0;
+	background: none;
+	padding: 0;
 }
 
 .fullscreen_nav .navmenu{
