@@ -1,321 +1,465 @@
 <!DOCTYPE html>
 <html lang="NO">
 <head>
-  <!-- DISABLE INDEXING UNTIL THE SITE IS READY FOR PUBLIC -->
-  <meta name="robots" content="noindex">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lamart Photography</title>
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400">
-</head>
+  <!-- DISABLE INDEXING UNTIL THE SITE IS READY FOR PUBLIC:-->
+    <meta name="robots" content="noindex"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none';">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400|Open+Sans:400&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Noto+Sans:400|Open+Sans:400&display=swap" as="style">
+    <link rel="preload" href="img/instagram_icon_colorful.svg" as="image">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Lamart Photography</title>
+    <meta name="description" content="Mitt navn er Laura, jeg fanger kjærlighet og latter ved bryllup, arrangementer og familiesamlinger, og skaper strålende portretter i Oslo og omegn. La oss skape magi sammen!">
+  </head>
 
 
-<body>
-  <div id="fullscreen_image">
-    <button class="button_exit_fullscreen_view">
-      <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk fullskjermmodus">
-    </button>
-  </div>
+  <body>
+    <div id="fullscreen_image">
+      <button class="button_exit_fullscreen_view">
+        <img class="button_img" src="img/exit_menu_icon.svg" alt="Lukk fullskjermmodus">
+      </button>
+    </div>
 
-  <header>
-    <div class="navbar" id="navbar">
-      <div class="container">
-        <img src="img/lamart_logo.png" id="lamart_logo" alt="Lamart logo">
-        
-        <nav>
-          <button onclick="openNav()" id="hamburger_button" aria-expanded="false" aria-label="Åpne navigasjonsmeny">
-            <img class="button_img" src="img/hamburger_menu_icon.svg" alt="Åpne navigasjonsmeny" aria-hidden="true">
-          </button>
+    <header>
+      <div class="navbar" id="navbar">
+        <div class="container">
+          <img src="img/lamart_logo_smaller.webp" id="lamart_logo" alt="Lamart logo">
           
-          <ul class="navmenu" id="navmenu">
-            <li>
-              <button class="menu_link" onclick="redirectToSection('about_me')">Om meg</button>
-            </li>
-            <li>
-              <button class="menu_link" onclick="redirectToSection('gallery')">Galleri</button>
-            </li>
-            <li>
-              <button class="menu_link" onclick="redirectToSection('pricing')">Priser</button>
-            </li>
-            <li>
-              <button class="menu_link" onclick="redirectToSection('contact')">Kontakt</button>
-            </li>
-            <li id="instagram_icon">
-              <button onclick="window.location.href='https://www.instagram.com/laraa__photography/';" aria-label="Gå til min instagram"></button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
-    <div class="mobile_banner" id="mobile_banner">
-      <img src="img/335483850_1278597173009035_8674762375865478595_n_edited.jpg" alt="" aria-label="Nettside banner">
-      <p>Laura Matiukaitė</p>
-      <p id="second_line">Photography - Art</p>
-    </div>
-  </header>
-
-
-  <main>
-    <section class="about_me" id="about_me" aria-label="Om_meg">
-      <div class="container">
-        <div id="about_me_article">
-          <h1>Labas!</h1>
-          <p>Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque. Cursus euismod quis viverra nibh. Vel elit scelerisque mauris pellentesque. Aliquam malesuada bibendum arcu vitae elementum. Sagittis eu volutpat odio facilisis. Sociis natoque penatibus et magnis dis.</p>
+          <nav>
+            <button id="hamburger_button" aria-expanded="false" aria-label="Åpne navigasjonsmeny">
+              <img class="button_img" src="img/hamburger_menu_icon.svg" alt="Åpne navigasjonsmeny" aria-hidden="true">
+            </button>
+            
+            <ul class="navmenu" id="navmenu">
+              <li>
+                <button class="menu_link" id="nav_about_me">Om meg</button>
+              </li>
+              <li>
+                <button class="menu_link" id="nav_gallery">Galleri</button>
+              </li>
+              <li>
+                <button class="menu_link" id="nav_pricing">Priser</button>
+              </li>
+              <li>
+                <button class="menu_link" id="nav_contact">Kontakt</button>
+              </li>
+              <li id="instagram_icon">
+                <button id="nav_instagram" aria-label="Gå til min instagram"></button>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <img src="img/laura_matiukaite_round.png" class="portrait" alt="Et bilde av meg">
       </div>
-    </section>
+
+      <div class="mobile_banner" id="mobile_banner">
+        <img src="img/335483850_edited.webp" alt="" aria-label="Nettside banner">
+        <p>Laura Matiukaitė</p>
+        <p id="second_line">Photography - Art</p>
+      </div>
+    </header>
 
 
-    <section class="gallery" id="gallery" aria-label="Galleri">
-      <h1 id="gallery_header">Galleri</h1>      
-
-      <ul aria-label="Mine fotografier">
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/1.jpg" alt="Bryllupsfoto: Brudeparet kysser blant trærne.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/2.jpg" alt="Portrett: En kvinne kledd i rosa holder iskrem, omringet av lilla blomster.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/3.jpg" alt="Portrett: En kvinne som står ved siden av en hvit hest.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/4.jpg" alt="Photoshoot: Et nærbilde av en kvinnes ansikt med hvite snøflak i ansiktet.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/5.jpg" alt="Bryllupsfoto: Brudeparet kneler i kirken, foran et podium.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/6.jpg" alt="Bryllupsfoto: En kvinne i en brudekjole gjør seg klar.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/7.jpg" alt="Bryllupsfoto: To gifteringer på toppen av et bord.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/8.jpg" alt="Bryllupsfoto: Et brudepar holder hverandre foran en en folkemengde.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/9.jpg" alt="Bedriftsfoto: En kokk lager mat på et kjøkken med flammer.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/10.jpg" alt="Profilbilde: En kvinne i rød kjole sitter ved et bord.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/11.jpg" alt="Bryllupsfoto: Bruden og brudgommen holder en baby foran en folkemengde, omgitt av naturen.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-        <li>
-          <button class="gallery_link">
-            <img class="gallery_image" src="img/gallery/12.jpg" alt="Bryllupsfoto: En gruppe kvinner står ved siden av hverandre i en blomstrende hage.">
-          </button>
-          <div class="overlay" aria-hidden="true"></div>
-        </li>
-      </ul>
-
-      <button onclick="addImages()" id="button_load_more" aria-label="Last inn flere bilder">Last inn flere</button>
-    </section>
-
-    
-    <hr>
+    <main>
+      <section class="about_me" id="about_me" aria-label="Om_meg">
+        <div class="container">
+          <div id="about_me_article">
+            <h1>Labas!</h1>
+            <p>Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque. Cursus euismod quis viverra nibh. Vel elit scelerisque mauris pellentesque. Aliquam malesuada bibendum arcu vitae elementum. Sagittis eu volutpat odio facilisis. Sociis natoque penatibus et magnis dis.</p>
+          </div>
+          <img src="img/80637122.webp"
+          class="portrait"
+          srcset="img/80637122x414.webp 414w,
+          img/80637122.webp 855w,
+          img/80637122x344.webp 344w"
+          sizes="(min-width: 855px) 344px,
+          (min-width: 414px) 855px,
+          414px"
+          alt="Et bilde av meg">
+        </div>
+      </section>
 
 
-    <section class="pricing" id="pricing" aria-label="Priser">
-      <div class="container">
-        <h1>Priser</h1>
-        <p>Volutpat sed cras ornare arcu dui vivamus arcu felis. Vel pharetra vel turpis nunc eget lorem dolor sed. Arcu non odio euismod lacinia at quis risus sed. Neque sodales ut etiam sit amet. Eget mauris pharetra et ultrices neque. Sed pulvinar proin gravida hendrerit lectus a. Vulputate mi sit amet mauris commodo. Sit amet consectetur adipiscing elit ut. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt:</p>
-        <ul class="list_within_paragraph">
-          <li>&ensp;•&ensp;Semper auctor neque vitae tempus</li>
-          <li>&ensp;•&ensp;Quam pellentesque nec</li>
-          <li>&ensp;•&ensp;Sit amet est placerat in egestas. Donec ultrices tincidunt arcu</li>
-          <li>&ensp;•&ensp;Non pretium vulputate sapien</li>
+      <section class="gallery" id="gallery" aria-label="Galleri">
+        <h1 id="gallery_header">Galleri</h1>      
+
+        <ul aria-label="Mine fotografier">
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/1x950.webp"
+              srcset="img/gallery/1x414.webp 414w,
+              img/gallery/1x632.webp 632w,
+              img/gallery/1x760.webp 760w,
+              img/gallery/1x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              alt="Bryllupsfoto: Brudeparet kysser blant trærne.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/2x950.webp"
+              srcset="img/gallery/2x414.webp 414w,
+              img/gallery/2x632.webp 632w,
+              img/gallery/2x760.webp 760w,
+              img/gallery/2x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              alt="Portrett: En kvinne kledd i rosa holder iskrem, omringet av lilla blomster.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/3x950.webp"
+              srcset="img/gallery/3x414.webp 414w,
+              img/gallery/3x632.webp 632w,
+              img/gallery/3x760.webp 760w,
+              img/gallery/3x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              alt="Portrett: En kvinne som står ved siden av en hvit hest.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/4x950.webp"
+              srcset="img/gallery/4x414.webp 414w,
+              img/gallery/4x632.webp 632w,
+              img/gallery/4x760.webp 760w,
+              img/gallery/4x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="photoshoot: Et nærbilde av en kvinnes ansikt med hvite snøflak i ansiktet.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/5x950.webp"
+              srcset="img/gallery/5x414.webp 414w,
+              img/gallery/5x632.webp 632w,
+              img/gallery/5x760.webp 760w,
+              img/gallery/5x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="Bryllupsfoto: Brudeparet kneler i kirken, foran et podium.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/6x950.webp"
+              srcset="img/gallery/6x414.webp 414w,
+              img/gallery/6x632.webp 632w,
+              img/gallery/6x760.webp 760w,
+              img/gallery/6x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="Bryllupsfoto: En kvinne i en brudekjole gjør seg klar.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/7x950.webp"
+              srcset="img/gallery/7x414.webp 414w,
+              img/gallery/7x632.webp 632w,
+              img/gallery/7x760.webp 760w,
+              img/gallery/7x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="Bryllupsfoto: To gifteringer på toppen av et bord.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image" 
+              src="img/gallery/8x950.webp"
+              srcset="img/gallery/8x414.webp 414w,
+              img/gallery/8x632.webp 632w,
+              img/gallery/8x760.webp 760w,
+              img/gallery/8x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="Bryllupsfoto: Et brudepar holder hverandre foran en en folkemengde.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image"
+              src="img/gallery/9x950.webp"
+              srcset="img/gallery/9x414.webp 414w,
+              img/gallery/9x632.webp 632w,
+              img/gallery/9x760.webp 760w,
+              img/gallery/9x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="Bedriftsfoto: En kokk lager mat på et kjøkken med flammer.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image"
+              src="img/gallery/10x950.webp"
+              srcset="img/gallery/10x414.webp 414w,
+              img/gallery/10x632.webp 632w,
+              img/gallery/10x760.webp 760w,
+              img/gallery/10x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="Profilbilde: En kvinne i rød kjole sitter ved et bord.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image"
+              src="img/gallery/11x950.webp"
+              srcset="img/gallery/11x414.webp 414w,
+              img/gallery/11x632.webp 632w,
+              img/gallery/11x760.webp 760w,
+              img/gallery/11x950.webp 950w"
+              sizes="(min-width: 1920px) 950px,
+              (min-width: 1536px) 760px,
+              (min-width: 1280px) 632px,
+              414px" 
+              loading="lazy" 
+              alt="Bryllupsfoto: Bruden og brudgommen holder en baby foran en folkemengde, omgitt av naturen.">
+            </button>
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
+          <li>
+            <button class="gallery_link">
+              <img class="gallery_image"
+              src="img/gallery/12x1920.webp"
+              srcset="img/gallery/12x414.webp 414w,
+              img/gallery/12x855.webp 855w,
+              img/gallery/12x1280.webp 1280w,
+              img/gallery/12x1536.webp 1536w,
+              img/gallery/12x1920.webp 1920w"
+              sizes="(max-width: 414px) 414px,
+              (max-width: 855px) 855px,
+              (max-width: 1280px) 1280px,
+              (max-width: 1536px) 1536px,
+              1920px" 
+              loading="lazy" 
+              alt="Bryllupsfoto: En gruppe kvinner står ved siden av hverandre i en blomstrende hage.">
+            </button>
+
+
+            <div class="overlay" aria-hidden="true"></div>
+          </li>
         </ul>
-        <p><br>Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque. Cursus euismod quis viverra nibh. Vel elit scelerisque mauris pellentesque. Aliquam malesuada bibendum arcu vitae elementum.</p>
 
-        <div class="table_container">
-          <div class="pricing_table">
-            <h2>Personlig</h2>
-            <div class="pricing_table_header">
-              <div><h3>1 bibendum</h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">1 000kr</p></div>
+        <button id="button_load_more" aria-label="Last inn flere bilder">Last inn flere</button>
+      </section>
+
+      
+      <hr>
+
+
+      <section class="pricing" id="pricing" aria-label="Priser">
+        <div class="container">
+          <h1>Priser</h1>
+          <p>Volutpat sed cras ornare arcu dui vivamus arcu felis. Vel pharetra vel turpis nunc eget lorem dolor sed. Arcu non odio euismod lacinia at quis risus sed. Neque sodales ut etiam sit amet. Eget mauris pharetra et ultrices neque. Sed pulvinar proin gravida hendrerit lectus a. Vulputate mi sit amet mauris commodo. Sit amet consectetur adipiscing elit ut. Convallis tellus id interdum velit laoreet id donec ultrices tincidunt:</p>
+          <ul class="list_within_paragraph">
+            <li>&ensp;•&ensp;Semper auctor neque vitae tempus</li>
+            <li>&ensp;•&ensp;Quam pellentesque nec</li>
+            <li>&ensp;•&ensp;Sit amet est placerat in egestas. Donec ultrices tincidunt arcu</li>
+            <li>&ensp;•&ensp;Non pretium vulputate sapien</li>
+          </ul>
+          <p><br>Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque. Cursus euismod quis viverra nibh. Vel elit scelerisque mauris pellentesque. Aliquam malesuada bibendum arcu vitae elementum.</p>
+
+          <div class="table_container">
+            <div class="pricing_table">
+              <h2>Personlig</h2>
+              <div class="pricing_table_header">
+                <div><h3>1 bibendum</h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">1 000kr</p></div>
+              </div>
+              <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+              
+              <div class="pricing_table_header">
+                <div><h3>2 bibendums</h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">2 500kr</p></div>
+              </div>
+              <p class="pricing_table_description">Ec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+              
+              <div class="pricing_table_header">
+                <div><h3>Bibendum turpis</h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">5 000kr</p></div>
+              </div>
+              <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
             </div>
-            <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
-            
-            <div class="pricing_table_header">
-              <div><h3>2 bibendums</h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">2 500kr</p></div>
+
+            <div class="pricing_table">
+              <h2>Arrangement</h2>
+              <div class="pricing_table_header">
+                <div><h3>1 egestas</h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">1 000kr</p></div>
+              </div>
+              
+              <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+              <div class="pricing_table_header">
+                <div><h3>2 egestas</h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">2 500kr</p></div>
+              </div>
+              <p class="pricing_table_description">Ec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+              
+              <div class="pricing_table_header">
+                <div><h3>Egestas turpis</h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">5 000kr</p></div>
+              </div>
+              <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
             </div>
-            <p class="pricing_table_description">Ec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
-            
-            <div class="pricing_table_header">
-              <div><h3>Bibendum turpis</h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">5 000kr</p></div>
+
+            <div class="pricing_table">
+              <h2>Bestilling</h2>
+              <div class="pricing_table_header">
+                <div><h3>Nec tincident </h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">5 000kr</p></div>
+              </div>
+              <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
+              
+              <div class="pricing_table_header">
+                <div><h3>Feugiat sceleris </h3></div>
+                <div class="divider" aria-hidden="true"></div>
+                <div><p class="pricing_table_price">10 000kr</p></div>
+              </div>
+              <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
             </div>
-            <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
           </div>
 
-          <div class="pricing_table">
-            <h2>Arrangement</h2>
-            <div class="pricing_table_header">
-              <div><h3>1 egestas</h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">1 000kr</p></div>
-            </div>
-            
-            <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
-            <div class="pricing_table_header">
-              <div><h3>2 egestas</h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">2 500kr</p></div>
-            </div>
-            <p class="pricing_table_description">Ec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
-            
-            <div class="pricing_table_header">
-              <div><h3>Egestas turpis</h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">5 000kr</p></div>
-            </div>
-            <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
-          </div>
-
-          <div class="pricing_table">
-            <h2>Bestilling</h2>
-            <div class="pricing_table_header">
-              <div><h3>Nec tincident </h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">5 000kr</p></div>
-            </div>
-            <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
-            
-            <div class="pricing_table_header">
-              <div><h3>Feugiat sceleris </h3></div>
-              <div class="divider" aria-hidden="true"></div>
-              <div><p class="pricing_table_price">10 000kr</p></div>
-            </div>
-            <p class="pricing_table_description">Turpis in eu mi bibendum neque egestas congue quisque. Nec tincidunt praesent semper feugiat. Adipiscing at in tellus integer feugiat scelerisque.</p>
-          </div>
+          <p>*Diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Viverra mauris in aliquam sem!</p>
         </div>
-
-        <p>*Diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Viverra mauris in aliquam sem!</p>
-      </div>
-    </section>
+      </section>
 
 
-    <hr>
+      <hr>
 
 
-    <section id="contact" class="contact" aria-label="Kontakt">
-      <div class="container">
-        <img src="img/54513681_1288280491345292_8807770354364875079_n.jpg" class="contact_form_image" alt="">
+      <section id="contact" class="contact" aria-label="Kontakt">
+        <div class="container">
+          <img loading="lazy" src="img/54513681_1288280491345292_8807770354364875079_n.webp" class="contact_form_image" alt="">
 
-        <div class="contact_form">
-          <form id="my_form" action="https://formsubmit.co/04ff1451105acb632d08f6da1056b434" method="POST">
-            <div>
-              <h1>Ta kontakt</h1>
-              <p>Du kan fylle ut skjemaet nedenfor, eller nå meg på:</p>
-              <a href="https://www.facebook.com/laura.matiukaite.75/">
-                <img src="img/facebook_icon.svg" class="social_links" alt="Kontakt meg på facebook!">laura.matiukaite
-              </a><br>
-              <a href="https://www.instagram.com/laraa__photography/">
-                <img src="img/instagram_icon.svg" class="social_links" alt="Kontakt meg på instagram!">laraa__photography
-              </a><br>
+          <div class="contact_form">
+            <form id="my_form" action="https://formsubmit.co/b59edd649bacfbdbf5cac45a4667a9f3" method="POST">
               <div>
-                <img src="img/email_icon.svg" class="social_links" alt="Kontakt meg på mail!">
-                <p class="avoidwrap"><span class="blockspam" aria-hidden="true">lamlam</span>lamart@post.no</p>
-              </div><br>
-              <hr>
-            </div>
+                <h1>Ta kontakt</h1>
+                <p>Du kan fylle ut skjemaet nedenfor, eller nå meg på:</p>
+                <a href="https://www.facebook.com/laura.matiukaite.75/">
+                  <img src="img/facebook_icon.svg" class="social_links" alt="Kontakt meg på facebook!">laura.matiukaite
+                </a><br>
+                <a href="https://www.instagram.com/laraa__photography/">
+                  <img src="img/instagram_icon.svg" class="social_links" alt="Kontakt meg på instagram!">laraa__photography
+                </a><br>
+                <div>
+                  <img src="img/email_icon.svg" class="social_links" id="contact_form_email_icon" alt="Kontakt meg på mail!">
+                  <p class="avoidwrap"><span class="blockspam" aria-hidden="true">lamlam</span>laura@lamart.no</p>
+                </div><br>
+                <hr>
+              </div>
 
-            <div>
-              <label for="name">Ditt navn*</label><br>
-              <input required id="name" type="text" name="name" placeholder="Skriv inn navnet ditt">
-            </div>
+              <div>
+                <label for="name">Ditt navn*</label><br>
+                <input required id="name" type="text" name="name" placeholder="Skriv inn navnet ditt">
+              </div>
 
-            <div class="form_option" aria-hidden="true">
-              <label for="lastname">La dette feltet være tom*</label><br>
-              <input id="lastname" type="text" name="lastname" placeholder="La dette feltet være tom">
-            </div>
+              <div class="form_option" aria-hidden="true">
+                <label for="lastname">La dette feltet være tom*</label><br>
+                <input id="lastname" type="text" name="lastname" placeholder="La dette feltet være tom">
+              </div>
 
-            <div class="form_option" aria-hidden="true">
-              <label for="topic">La dette feltet være tom*</label><br>
-              <input id="topic" type="text" name="_honey" placeholder="La dette feltet være tom">
-            </div>
+              <div class="form_option" aria-hidden="true">
+                <label for="topic">La dette feltet være tom*</label><br>
+                <input id="topic" type="text" name="_honey" placeholder="La dette feltet være tom">
+              </div>
 
-            <div>
-              <label for="email">Din epost*</label><br>
-              <input required id="email" type="email" name="email" placeholder="Tast inn epostadressen din">
-            </div>
+              <div>
+                <label for="email">Din epost*</label><br>
+                <input required id="email" type="email" name="email" placeholder="Tast inn epostadressen din">
+              </div>
 
-            <div>
-              <label for="tel">Ditt mobilnummer*</label><br>
-              <input required id="tel" type="tel" name="phonenumber" placeholder="Tast inn mobilnummeret ditt">
-            </div>
+              <div>
+                <label for="tel">Ditt mobilnummer*</label><br>
+                <input required id="tel" type="tel" name="phonenumber" placeholder="Tast inn mobilnummeret ditt">
+              </div>
 
-            <div>
-              <label for="message">Melding*</label><br>
-              <textarea required id="message" name="message" rows="5" placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
-            </div>
+              <div>
+                <label for="message">Melding*</label><br>
+                <textarea required id="message" name="message" rows="5" placeholder="Ønsker du fotografering? Har du et spørsmål?  Lurer du på om jeg er ledig på deres bryllupsdag? Bare spør i vei!"></textarea>
+              </div>
 
-            <!-- <input type="hidden" name="_captcha" value="false"> -->
+              <!-- <input type="hidden" name="_captcha" value="false"> -->
 
-            <button aria-label="Send inn skjemaet" type="submit">Send</button>
-          </form>
+              <button aria-label="Send inn skjemaet" type="submit">Send</button>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
 
-  <footer>
-    <button onclick="redirectToSection('about_me')" class="button_back_to_top"> 
-      <img src="img/up_arrow_icon.svg" alt="Hopp tilbake til toppen">
-      <br>
-      <span aria-hidden="true">Til toppen igjen</span>
-    </button>
+    <footer>
+      <button id="button_back_to_top"> 
+        <img src="img/up_arrow_icon.svg" alt="Hopp tilbake til toppen">
+        <br>
+        <span aria-hidden="true">Til toppen igjen</span>
+      </button>
 
-    <p class="footer_info"><span class="avoidwrap">©Lamart | Art and Photography | Laura Matiukaite |</span><span class="avoidwrap"> E: lamart@post.no</span></p>
-  </footer>
-  <!--HAS TO BE LOADED LAST:-->
-  <script src="scripts.js"></script>
-</body>
-</html> 
+      <p class="footer_info"><span class="avoidwrap">©Lamart | Art and Photography | Laura Matiukaite |</span><span class="avoidwrap"> E: <span class="blockspam" aria-hidden="true">lamlam</span>laura@lamart.no</span></p>
+    </footer>
+    <!--HAS TO BE LOADED LAST:-->
+    <script src="scripts.js"></script>
+  </body>
+  </html> 
