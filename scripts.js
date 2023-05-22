@@ -21,7 +21,7 @@ const buttonBackToTop = footer.querySelector("#button_back_to_top");
 
 
 // This is a honeypot field used as a spam prevention technique in the form.
-const honeypotField = main.querySelector("#lastname");
+const inconspicuousField = main.querySelector("#lastname");
 
 // Store the previous scroll position for comparison on scroll events.
 let prevScrollPos = window.pageYOffset;
@@ -56,16 +56,16 @@ const galleryImageDescriptions = [
 
 function generateSrcset(imageNumber) {
   return `img/gallery/${imageNumber}x414.webp 414w,
-    img/gallery/${imageNumber}x632.webp 632w,
-    img/gallery/${imageNumber}x760.webp 760w,
-    img/gallery/${imageNumber}x950.webp 950w`;
+  img/gallery/${imageNumber}x632.webp 632w,
+  img/gallery/${imageNumber}x760.webp 760w,
+  img/gallery/${imageNumber}x950.webp 950w`;
 }
 
 function generateSizes() {
   return `(min-width: 1920px) 950px,
-    (min-width: 1536px) 760px,
-    (min-width: 1280px) 632px,
-    414px`;
+  (min-width: 1536px) 760px,
+  (min-width: 1280px) 632px,
+  414px`;
 }
 
 
@@ -273,9 +273,8 @@ function disableElements(...elements) {
 // Event listener for form submission.
 // This checks the honeypot field and prevents form submission if it contains a value.
 document.getElementById('my_form').addEventListener('submit', (event) => {
-  if (honeypotField.value !== '') {
+  if (inconspicuousField.value !== '') {
     event.preventDefault();
-    return true;
   }
 });
 
